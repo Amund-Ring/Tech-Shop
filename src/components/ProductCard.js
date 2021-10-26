@@ -3,16 +3,6 @@ import React, { useEffect, useState } from "react";
 import * as styles from "../styles/ProductCard.module.css";
 
 function ProductCard({ item }) {
-  // const [details, setDetails] = useState({
-  //   id: 0,
-  //   name: "-",
-  //   brand: "-",
-  //   available: false,
-  // });
-
-  // console.log(details);
-
-
   const handleClick = () => {
     console.log("Card clicked.");
     navigate(`/product?id=${item.id}`);
@@ -22,8 +12,9 @@ function ProductCard({ item }) {
     <div className={styles.productCard} onClick={handleClick}>
       <img src={`/products/${item.id}.jpg`} alt="Alternative text" />
       <div>
-        <h2>Philips hue bulb - Philips</h2>
-        <h3>500,-</h3>
+        {/* <h2>{`${item.name} - ${item.brand}`}</h2> */}
+        <h2>{`${item.name}`}</h2>
+        <h3>{`${item.price},-`}</h3>
       </div>
     </div>
   );
