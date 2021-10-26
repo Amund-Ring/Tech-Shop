@@ -1,31 +1,16 @@
-import React, { } from "react";
+import React from "react";
 import Layout from "../components/Layout";
 import ProductCard from "../components/ProductCard";
-import * as styles from "../styles/products.module.css";
-import JSONData from "../../content/products.json"
-
-
+import productData from "../../content/products.json";
 
 function Products() {
-  
-
-
-
   return (
     <Layout>
-      <div className={styles.products}>
-
-
-        {JSONData.items.map((item, index) => {
-          return <ProductCard item={item} ></ProductCard>
+      <div className='products'>
+        {productData.items.map((item, index) => {
+          return <ProductCard key={`id_${index}`} item={item}></ProductCard>;
         })}
-
-
-        {/* <ProductCard item={testItem} /> */}
       </div>
-
-
-
     </Layout>
   );
 }

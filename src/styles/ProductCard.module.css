@@ -30,6 +30,9 @@
   background: var(--productCard-bg);
   padding: 10px;
   padding-left: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .productCard > div > h2 {
@@ -37,9 +40,11 @@
   text-transform: capitalize;
   font-size: 16px;
   font-family: 'Avenir';
+  max-width: 150px;
 }
 
 .productCard > div > h3 {
   color: var(--productCard-price);
-  font-size: 18px;
+  font-size: 24px;
+  margin-right: 15px;
 }

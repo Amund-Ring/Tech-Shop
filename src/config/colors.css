@@ -5,9 +5,11 @@
   --body-bg: rgb(217, 239, 248);
   --black: #000;
   --white: #fff;
-  --productCard-bg: #2ac055c5;
-  --productCard-title: #1c49b1e3;
-  --productCard-price: #244ca8d0;
+  --productCard-bg: #e1d4ffc5;
+  --productCard-title: #277ae7;
+  --productCard-price: #27bd52;
+  --productDetails-price: #0d9958;
+  --productDetails-details-bg: #3ccc65;
 }
 
 

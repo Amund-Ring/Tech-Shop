@@ -1,0 +1,49 @@
+@import "../config/colors.css";
+
+.productDetails {
+  width: 600px;
+  height: 500px;
+  background: var(--white);
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+
+  /* border: 2px dotted black; */
+}
+
+.productDetails > h2 {
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 20px;
+  font-family: Avenir;
+  font-size: 22px;
+}
+
+.productDetails > h3 {
+  position: absolute;
+  margin-top: 50px;
+  margin-left: 20px;
+  font-family: Avenir;
+  color: var(--productDetails-price)
+}
+
+.imageContainer {
+  width: 60%;
+  height: 100%;
+  /* background: green; */
+  display: grid;
+  place-items: center;
+
+  /* border: 4px dotted black; */
+}
+
+.imageContainer > img {
+  width: 90%;
+
+  /* border: 3px dotted red; */
+}
+
+.details {
+  background: var(--productDetails-details-bg);
+  flex: 1;
+}
