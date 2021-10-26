@@ -7,7 +7,7 @@
 body {
   width: 100vw;
   height: 100vh;
-  background: rgb(243, 195, 203);
+  /* background: rgb(243, 195, 203); */
 }
 
 .layout {
@@ -21,5 +21,5 @@ body {
 .content {
   width: 100vw;
   flex: 1;
-  background: rgb(227, 227, 140);
+  /* background: rgb(227, 227, 140); */
 }
