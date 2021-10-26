@@ -1,10 +1,13 @@
 
 :root {
-  --primary: #27cd38;
+  --primary: #20b34a;
   --secondary: rgb(60, 60, 148);
+  --body-bg: rgb(217, 239, 248);
   --black: #000;
   --white: #fff;
-  --green-price: rgb(13, 184, 90);
+  --productCard-bg: #2ac055c5;
+  --productCard-title: #1c49b1e3;
+  --productCard-price: #1569d8;
 }
 
 

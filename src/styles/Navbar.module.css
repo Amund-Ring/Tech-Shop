@@ -12,7 +12,9 @@
 
 
   background: var(--primary);
-  border: 2px solid black;
+  background: linear-gradient(0deg, rgb(26, 167, 66) 0%, rgb(61, 211, 104) 100%);
+
+  /* border: 2px solid black; */
 }
 
 .navbar > h1 {

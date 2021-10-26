@@ -1,16 +1,26 @@
 import { navigate } from "gatsby";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as styles from "../styles/ProductCard.module.css";
 
-function ProductCard({ id }) {
+function ProductCard({ item }) {
+  // const [details, setDetails] = useState({
+  //   id: 0,
+  //   name: "-",
+  //   brand: "-",
+  //   available: false,
+  // });
+
+  // console.log(details);
+
+
   const handleClick = () => {
     console.log("Card clicked.");
-    navigate(`/product?id=${id}`);
+    navigate(`/product?id=${item.id}`);
   };
 
   return (
     <div className={styles.productCard} onClick={handleClick}>
-      <img src={"/1.jpg"} alt="Alternative text" />
+      <img src={`/products/${item.id}.jpg`} alt="Alternative text" />
       <div>
         <h2>Philips hue bulb - Philips</h2>
         <h3>500,-</h3>
