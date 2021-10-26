@@ -1,11 +1,17 @@
+import { navigate } from "gatsby-link";
 import React from "react";
 import * as styles from "../styles/Navbar.module.css";
 
 function Navbar() {
+
+  const handleClick = () => {
+    navigate('/products');
+  };
+
   return (
 
     <nav className={styles.navbar}>
-      <h1>Tech Shop</h1>
+      <h1 onClick={handleClick}>Tech Shop</h1>
       <p>Cart(3)</p>
     </nav>
   );

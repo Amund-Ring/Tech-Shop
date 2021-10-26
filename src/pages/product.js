@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 import productData from "../../content/products.json";
 import ProductDetails from "../components/ProductDetails";
 
-function Item() {
+function Product() {
   const [productId] = useQueryParam("id", NumberParam);
 
   if (typeof productId === "undefined" || isNaN(productId)) {
@@ -18,13 +18,19 @@ function Item() {
     navigate("/404");
   }
 
+  const goBack = () => {
+    navigate("/products");
+  }
+  
+
   return (
     <Layout>
       <div className="item">
+        <h3 onClick={goBack}>{`<-- Back`}</h3>
         <ProductDetails item={productItem} />
       </div>
     </Layout>
   );
 }
 
-export default Item;
+export default Product;

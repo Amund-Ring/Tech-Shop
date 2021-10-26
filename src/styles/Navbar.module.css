@@ -11,7 +11,7 @@
   justify-content: space-between;
   padding: 20px;
   background: var(--primary);
-  background: linear-gradient(0deg, rgb(26, 167, 66) 0%, rgb(61, 211, 104) 100%);
+  background: linear-gradient(0deg, rgb(35, 184, 77) 0%, rgb(72, 226, 115) 100%);
 
   /* border: 2px solid black; */
 }
@@ -22,8 +22,10 @@
   font-family: 'Play', sans-serif;
   font-size: 25px;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .navbar > p {
   color: white;
+  cursor: pointer;
 }

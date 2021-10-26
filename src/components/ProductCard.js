@@ -4,7 +4,7 @@ import * as styles from "../styles/ProductCard.module.css";
 
 function ProductCard({ item }) {
   const handleClick = () => {
-    navigate(`/item?id=${item.id}`);
+    navigate(`/product?id=${item.id}`);
   };
 
   return (

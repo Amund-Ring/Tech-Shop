@@ -1,6 +1,6 @@
 
 :root {
-  --primary: #20b34a;
+  --primary: #34cf60;
   --secondary: rgb(60, 60, 148);
   --body-bg: rgb(217, 239, 248);
   --black: #000;
@@ -8,8 +8,11 @@
   --productCard-bg: #e1d4ffc5;
   --productCard-title: #277ae7;
   --productCard-price: #27bd52;
+  --productDetails-title: #1a62c2;
+  --productDetails-back: #114fa0;
   --productDetails-price: #0d9958;
-  --productDetails-details-bg: #3ccc65;
+  --productDetails-details-bg: #e1d4ffc5;
+  --productDetails-addToCart: #34cf60;
 }
 
 
