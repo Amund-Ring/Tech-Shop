@@ -8,28 +8,29 @@ import productData from "../data/products.json";
 
 
 function Product() {
-  const [productId] = useQueryParam("id", NumberParam);
+  // const [productId] = useQueryParam("id", NumberParam);
 
-  if (typeof productId === "undefined" || isNaN(productId)) {
-    navigate("/404");
-  }
+  // if (typeof productId === "undefined" || isNaN(productId)) {
+  //   navigate("/404");
+  // }
 
-  const productItem = productData.items.find(item => item.id === productId);
+  // const productItem = productData.items.find(item => item.id === productId);
 
-  if (typeof productItem === "undefined") {
-    navigate("/404");
-  }
+  // if (typeof productItem === "undefined") {
+  //   navigate("/404");
+  // }
 
-  const goBack = () => {
-    navigate("/products");
-  }
+  // const goBack = () => {
+  //   navigate("/products");
+  // }
   
 
   return (
     <Layout>
       <div className="item">
-        <h3 onClick={goBack} >{`<-- Back`}</h3> {/* eslint-disable-line */}
-        <ProductDetails item={productItem} />
+        {/* <h3 onClick={goBack} >{`<-- Back`}</h3> eslint-disable-line */}
+        <h3 >{`<-- Back`}</h3> {/* eslint-disable-line */}
+        {/* <ProductDetails item={productItem} /> */}
       </div>
     </Layout>
   );
