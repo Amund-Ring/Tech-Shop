@@ -66,8 +66,15 @@
           "storage": ["250", "500"],
           "quantity": 0
         },
-        {},
-        {}
+        { 
+          "color": ["white"],
+          "storage": ["250", "500"],
+          "quantity": 12 },
+        {
+          "color": ["red"],
+          "storage": ["500"],
+          "quantity": 5
+        }
       ]
     },
     {
@@ -102,6 +109,7 @@
           "quantity": 1
         },
         {
+          "color": ["white"],
           "quantity": 11
         },
         {

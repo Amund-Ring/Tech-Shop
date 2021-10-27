@@ -2,8 +2,10 @@ import React from "react";
 import { useQueryParam, NumberParam } from "use-query-params";
 import { navigate } from "gatsby";
 import Layout from "../components/Layout";
-import productData from "../../content/products.json";
 import ProductDetails from "../components/ProductDetails";
+import productData from "../data/products.json";
+
+
 
 function Product() {
   const [productId] = useQueryParam("id", NumberParam);
@@ -26,7 +28,7 @@ function Product() {
   return (
     <Layout>
       <div className="item">
-        <h3 onClick={goBack}>{`<-- Back`}</h3>
+        <h3 onClick={goBack} >{`<-- Back`}</h3> {/* eslint-disable-line */}
         <ProductDetails item={productItem} />
       </div>
     </Layout>

@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout";
 import ProductCard from "../components/ProductCard";
-import productData from "../../content/products.json";
+import productData from "../data/products.json";
 
 function Products() {
   return (

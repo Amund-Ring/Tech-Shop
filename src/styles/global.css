@@ -34,11 +34,13 @@ body {
 .products {
   width: 100%;
   min-height: 100vh;
+  padding: 40px;
+
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   justify-items: center;
   grid-gap: 40px;
-  padding: 40px;
+
 }
 
 .item {
