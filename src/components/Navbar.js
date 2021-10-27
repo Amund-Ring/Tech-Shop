@@ -9,7 +9,7 @@ function Navbar() {
 
   return (
     <nav className={styles.navbar}>
-      <h1 onClick={handleClick}>Tech Shop</h1> {/* eslint-disable-line */}
+      <h1 onClick={handleClick}>Tech Shop - testing</h1> {/* eslint-disable-line */}
       <p>Cart(3)</p>
     </nav>
   );
