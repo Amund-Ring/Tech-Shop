@@ -61,10 +61,10 @@ function ProductDetails({ item }) {
 
       <div className={styles.details}>
         <div className={styles.detailsText}>
-          <p className={styles.detailsName}>Name: {item.name}</p>
+        <p className={styles.detailsName}>{item.name}</p>
           <p>Brand: {item.brand}</p>
           <p>
-            Availabilty: {item.available ? "In Stock" : "Currently unavailable"}
+            Availabilty: {item.available ? "In Stock" : "Not available"}
           </p>
           <p>Weight: {item.weight}kg</p>
         </div>

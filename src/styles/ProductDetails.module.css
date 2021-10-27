@@ -1,7 +1,7 @@
 @import "../config/colors.css";
 
 .productDetails {
-  width: 600px;
+  width: 650px;
   height: 500px;
   background: var(--white);
   display: flex;
@@ -42,7 +42,8 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 40px;
   padding: 15px;
   padding-top: 30px;
   padding-bottom: 50px;
@@ -64,6 +65,10 @@
 
 .detailsName {
   text-transform: capitalize;
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: underline;
+  margin-bottom: 10px;
 }
 
 .options {
@@ -94,7 +99,9 @@
 .optionButtons {
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap;
   gap: 10px;
+  row-gap: 3px;
   font-size: 16px;
   margin-left: 10px;
 
@@ -112,7 +119,7 @@
   font-size: 22px;
   font-weight: bold;
   color: var(--white);
-  margin-top: 20px;
+  margin-top: auto;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 5px;
   -webkit-text-stroke: 0.3px black;
   cursor: pointer;
@@ -121,3 +128,4 @@
 .details > button:hover {
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 6px;
 }
+
