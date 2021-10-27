@@ -8,26 +8,22 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 4px;
   overflow: hidden;
-
-
 }
 
 .productDetails > h2 {
   position: absolute;
   margin-top: 20px;
   margin-left: 20px;
-  font-family: Avenir;
   font-size: 22px;
   text-transform: capitalize;
-  color: var(--productDetails-title)
+  color: var(--productDetails-title);
 }
 
 .productDetails > h3 {
   position: absolute;
   margin-top: 50px;
   margin-left: 20px;
-  font-family: Avenir;
-  color: var(--productDetails-price)
+  color: var(--productDetails-price);
 }
 
 .imageContainer {
@@ -35,13 +31,10 @@
   height: 100%;
   display: grid;
   place-items: center;
-  
 }
 
 .imageContainer > img {
   width: 90%;
-  
-  /* border: 3px dotted red; */
 }
 
 .details {
@@ -49,34 +42,73 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  font-size: 17px;
+  font-weight: 500;
+
+  /* background: green; */
 }
 
-.options {
-  /* width: 80%; */
+.detailsText {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
   width: 100%;
-  /* height: 100px; */
-  align-self: center;
-  
-  background: turquoise;
+  margin-left: 5px;
+
+  /* background: pink; */
 }
 
-.colorOptions {
-
-  background: yellow;
-
-  /* width: 50%; */
-  border: 2px solid black;
+.detailsName {
   text-transform: capitalize;
 }
 
+.options {
+  width: 100%;
+  align-self: center;
+  margin-left: 5px;
+
+  /* background: turquoise; */
+}
+
+.radioButtons {
+  text-transform: capitalize;
+  /* justify-content: space-between; */
+
+  /* border: 1px solid black;
+  background: yellow; */
+  /* margin-top: 10px; */
+}
+
+.colorButtons {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 16px;
+
+  /* background: yellow; */
+}
+
+.optionButtons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  font-size: 16px;
+  margin-left: 10px;
+
+  /* background: violet; */
+}
+
+
 .details > button {
-  width: 80%;
+  width: 90%;
   height: 50px;
   align-self: center;
   background: var(--productDetails-addToCart);
   box-shadow: none;
   border: none;
-  font-family: 'Avenir';
   font-size: 22px;
   font-weight: bold;
   color: var(--white);
@@ -88,5 +120,4 @@
 
 .details > button:hover {
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 6px;
-
 }

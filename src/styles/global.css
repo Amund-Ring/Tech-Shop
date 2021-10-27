@@ -10,6 +10,7 @@ body {
   width: 100vw;
   height: 100vh;
   background: var(--body-bg);
+  font-family: 'Avenir';
 }
 
 .notFound {
@@ -39,7 +40,8 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   justify-items: center;
-  grid-gap: 40px;
+  align-content: flex-start;
+  grid-gap: 50px;
 
 }
 

@@ -1,13 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as styles from "../styles/ProductDetails.module.css";
 
 function ProductDetails({ item }) {
   const [selectedColor, setSelectedColor] = useState(
-    item.options[0]["color"][0]
+    item.options[0]["color"].toString()
   );
-  const [selectedStorage, setSelectedStorage] = useState(
-    item.options[0]["storage"] || "No storage option"
+
+  const getStorageOptions = color => {
+    return item.options.find(option => option["color"] == color).storage;
+  };
+
+  const [storageOptions, setStorageOptions] = useState(
+    getStorageOptions(selectedColor)
   );
+
+  const getPowerOptions = color => {
+    return item.options.find(option => option["color"] == color).power;
+  };
+
+  const [powerOptions, setPowerOptions] = useState(
+    getPowerOptions(selectedColor)
+  );
+
+  useEffect(() => {
+    setStorageOptions(getStorageOptions(selectedColor));
+  }, [selectedColor]);
+
+  const [selectedStorage, setSelectedStorage] = useState([]);
+  const [selectedPower, setSelectedPower] = useState([]);
 
   const optionIsAvailable = (color, amountInCart) => {
     const colorOption = item.options.find(option => option.color == color);
@@ -17,12 +37,19 @@ function ProductDetails({ item }) {
     );
   };
 
+  // for (let i = 0; i < item.options.length; i++) {
+  //   for (const optionName in item.options[i]) {
+  //     console.log(optionName);
+  //   }
+  // }
+
   const handleButtonClick = () => {
     console.log("Button was clicked.");
+    console.log(selectedColor);
+    console.log(storageOptions);
+    console.log("selectedStorage", selectedStorage);
+    console.log("selectedPower", selectedPower);
   };
-
-  console.log(item.options);
-  console.log(selectedStorage);
 
   return (
     <div className={styles.productDetails}>
@@ -31,22 +58,87 @@ function ProductDetails({ item }) {
       <div className={styles.imageContainer}>
         <img src={`/products/${item.id}.jpg`} alt="Alternative text" />
       </div>
-      <div className={styles.details}>
-        <p>Name: {item.name}</p>
-        <p>Brand: {item.brand}</p>
-        <p>Availabilty: {item.available ? "In Stock" : "Sold Out"}</p>
-        <p>Weight: {item.weight}kg</p>
-        <div className={styles.options}>
-          <div className={styles.colorOptions}>
-            <p>Colors:</p>
 
-            {item.options.map((option, index) => {
-              return (
-                <>
-                  <input type="radio" value={option["color"]} name="color" /> {option["color"]}
-                </>
-              );
-            })}
+      <div className={styles.details}>
+        <div className={styles.detailsText}>
+          <p className={styles.detailsName}>Name: {item.name}</p>
+          <p>Brand: {item.brand}</p>
+          <p>
+            Availabilty: {item.available ? "In Stock" : "Currently unavailable"}
+          </p>
+          <p>Weight: {item.weight}kg</p>
+        </div>
+
+        <div className={styles.options}>
+          <div className={styles.radioButtons}>
+            <p>Colors:</p>
+            <div className={styles.colorButtons}>
+              {item.options.map((option, index) => {
+                return (
+                  <div key={index}>
+                    <input
+                      onClick={() => {
+                        setSelectedColor(option["color"].toString());
+                      }}
+                      type="radio"
+                      value={option["color"]}
+                      name="color"
+                    />{" "}
+                    {option["color"]}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className={styles.radioButtons}>
+            {storageOptions ? <p>Storage:</p> : ""}
+            {
+              <div className={styles.optionButtons}>
+                {storageOptions
+                  ? storageOptions.map((option, index) => {
+                      return (
+                        <div key={index}>
+                          <input
+                            onClick={() => {
+                              setSelectedStorage(option.toString());
+                            }}
+                            type="radio"
+                            value={option}
+                            name="storage"
+                          />{" "}
+                          {option} GB
+                        </div>
+                      );
+                    })
+                  : ""}
+              </div>
+            }
+          </div>
+
+          <div className={styles.radioButtons}>
+            {powerOptions ? <p>Power:</p> : ""}
+            {
+              <div className={styles.optionButtons}>
+                {powerOptions
+                  ? powerOptions.map((option, index) => {
+                      return (
+                        <div key={index}>
+                          <input
+                            onClick={() => {
+                              setSelectedPower(option.toString());
+                            }}
+                            type="radio"
+                            value={option}
+                            name="power"
+                          />{" "}
+                          {option}W
+                        </div>
+                      );
+                    })
+                  : ""}
+              </div>
+            }
           </div>
 
           {/* {item.options.map((option, index) => {

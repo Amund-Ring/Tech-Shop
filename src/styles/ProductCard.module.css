@@ -39,7 +39,6 @@
   color: var(--productCard-title);
   text-transform: capitalize;
   font-size: 16px;
-  font-family: 'Avenir';
   max-width: 150px;
 }
 

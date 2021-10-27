@@ -29,8 +29,16 @@
           "power": [6.5, 9.5],
           "quantity": 3
         },
-        {},
-        {}
+        {
+          "color": "red",
+          "power": [6.5, 9.5],
+          "quantity": 7
+        },
+        {
+          "color": "green",
+          "power": [6.5],
+          "quantity": 0
+        }
       ]
     },
     {
@@ -66,10 +74,11 @@
           "storage": ["250", "500"],
           "quantity": 0
         },
-        { 
+        {
           "color": ["white"],
           "storage": ["250", "500"],
-          "quantity": 12 },
+          "quantity": 12
+        },
         {
           "color": ["red"],
           "storage": ["500"],
