@@ -1,22 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { useQueryParam, NumberParam } from "use-query-params";
+import React from "react";
+import useQueryParam from "../components/useQueryParams";
 import { navigate } from "gatsby";
 import Layout from "../components/Layout";
 import ProductDetails from "../components/ProductDetails";
 import productData from "../data/products.json";
 
 function Product() {
-
-
-  const [productId, setProductId] = useState(2);
-  // const [productId, setProductId] = useQueryParam("id", NumberParam);
-
+  const [productId] = useQueryParam("id", 1);
 
   if (typeof productId === "undefined" || isNaN(productId)) {
     navigate("/404");
   }
 
-  const productItem = productData.items.find(item => item.id === productId);
+  const productItem = productData.items.find(
+    item => item.id === parseInt(productId, 10)
+  );
 
   if (typeof productItem === "undefined") {
     navigate("/404");

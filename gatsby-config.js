@@ -6,8 +6,6 @@
 
 module.exports = {
   /* Your site config here */
-  plugins: [
-    "gatsby-plugin-use-query-params",
-  ],
+  plugins: [],
   pathPrefix: "/Tech-Shop",
-}
+};
