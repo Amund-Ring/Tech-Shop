@@ -8,6 +8,8 @@ function getCartFromLocalStorage() {
     const cart = JSON.parse(localStorage.getItem("shoppingCart"));
     return cart;
   }
+
+  return [];
 }
 
 function addToCart(item) {
