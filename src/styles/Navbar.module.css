@@ -17,15 +17,51 @@
 }
 
 .navbar > h1 {
-  color: white;
+  color: var(--white);
   font-weight: 700;
   font-family: 'Play', sans-serif;
   font-size: 25px;
   margin-left: 10px;
   cursor: pointer;
+  font-size: 28px;
 }
 
 .navbar > p {
-  color: white;
+  color: var(--white);
   cursor: pointer;
+}
+
+.cart {
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+}
+
+.cart > svg {
+  color: var(--white);
+  width: 65%;
+  position: relative;
+  margin-top: 3px;
+}
+
+.cart > span {
+  width: 18px;
+  height: 18px;
+  background: var(--shoppingcart-circle-bg);
+  border: 3px solid var(--shoppingcart-circle-border);
+  box-sizing: content-box;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 20px;
+  position: absolute;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  color: var(--shoppingcart-number);
+}
+
+.hidden {
+  visibility: hidden;
 }
