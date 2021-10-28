@@ -24,6 +24,7 @@
   margin-left: 10px;
   cursor: pointer;
   font-size: 28px;
+  text-shadow: 0.1px 0.1px 2px #000000;
 }
 
 .navbar > p {
@@ -44,6 +45,8 @@
   width: 65%;
   position: relative;
   margin-top: 3px;
+  -webkit-filter: drop-shadow( 0.2px 0.2px 1px rgba(0, 0, 0, .7));
+  /* filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7)); */
 }
 
 .cart > span {
