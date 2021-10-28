@@ -1,13 +1,14 @@
 function getCartFromLocalStorage() {
-  if (localStorage.getItem("shoppingCart") === null) {
-    localStorage.setItem("shoppingCart", JSON.stringify([]));
-    return [];
+  if (typeof window !== "undefined") {
+    if (localStorage.getItem("shoppingCart") === null) {
+      localStorage.setItem("shoppingCart", JSON.stringify([]));
+      return [];
+    }
+
+    const cart = JSON.parse(localStorage.getItem("shoppingCart"));
+    return cart;
   }
-
-  const cart = JSON.parse(localStorage.getItem("shoppingCart"));
-  return cart;
-};
-
+}
 
 function addToCart(item) {
   let shoppingCart = getCartFromLocalStorage();
@@ -20,7 +21,4 @@ function getAmountInCart() {
   return shoppingCart.length;
 }
 
-export {getCartFromLocalStorage, addToCart, getAmountInCart };
-
-
-
+export { getCartFromLocalStorage, addToCart, getAmountInCart };
