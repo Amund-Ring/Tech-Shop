@@ -11,9 +11,9 @@ function Navbar({ amountInCart }) {
   }, [amountInCart])
 
   const handleLogoClick = () => {
-    // navigate("/products");
+    navigate("/products");
 
-    console.log(amountInCart);
+    // console.log(amountInCart);
   };
 
   const handleCartClick = () => {
