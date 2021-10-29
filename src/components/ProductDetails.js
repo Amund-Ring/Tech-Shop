@@ -1,19 +1,15 @@
 import React, { useEffect, useState } from "react";
 import * as styles from "../styles/ProductDetails.module.css";
-import {
-  getQuantityAvailable,
-  itemIsAvailable,
-  colorIsAvailable,
-  getAmountInCart,
-  getOptionAmountInCart,
-} from "../data/dataHandler";
+import { colorIsAvailable } from "../data/dataHandler";
 
 function ProductDetails({ item, amountInCart, addItemToCart }) {
   const getStorageOptions = color => {
+    //eslint-disable-next-line
     return item.options.find(option => option["color"] == color).storage;
   };
 
   const getPowerOptions = color => {
+    //eslint-disable-next-line
     return item.options.find(option => option["color"] == color).power;
   };
 
@@ -33,9 +29,10 @@ function ProductDetails({ item, amountInCart, addItemToCart }) {
     const storageChoices = getStorageOptions(selectedColor);
     setStorageOptions(storageChoices);
     if (typeof storageChoices !== "undefined") {
-      setSelectedStorage(storageOptions[0]);
+      setSelectedStorage(storageChoices[0]);
     }
-  }, []);
+    //eslint-disable-next-line
+  }, [selectedColor]);
 
   useEffect(() => {
     const powerChoices = getPowerOptions(selectedColor);
@@ -43,77 +40,28 @@ function ProductDetails({ item, amountInCart, addItemToCart }) {
     if (typeof powerChoices !== "undefined") {
       setSelectedPower(powerChoices[0]);
     }
-  }, []);
+    //eslint-disable-next-line
+  }, [selectedColor]);
 
   useEffect(() => {
     setColorAvailable(colorIsAvailable(item.id, selectedColor));
+    //eslint-disable-next-line
   }, [selectedColor]);
 
-  // useEffect(() => {
-  //   setPowerOptions(getPowerOptions(selectedColor));
-  // }, []);
-
-  // useEffect(() => {
-  //   setPowerOptions(getPowerOptions(selectedColor));
-  // }, []);
-
-  const optionIsAvailable = (color, amountInCart) => {
-    const colorOption = item.options.find(option => option.color == color);
-    return (
-      typeof colorOption !== "undefined" &&
-      colorOption.quantity - amountInCart > 0
-    );
-  };
-
-  // for (let i = 0; i < item.options.length; i++) {
-  //   for (const optionName in item.options[i]) {
-  //     console.log(optionName);
-  //   }
-  // }
-
-  // const buttonActivation = () => {
-  //   if(!colorOptionClicked) {
-  //     return false;
-  //   }
-
-  //   if (!storageOptionClicked) {
-  //     return false;
-  //   }
-
-  //   if (!powerOptionClicked) {
-  //     return false;
-  //   }
-
-  //   return true;
-  // }
-
   const handleButtonClick = () => {
-    // console.log("Button was clicked.");
-    // console.log("selectedColor", selectedColor);
-    // console.log("selectedStorage", selectedStorage);
-    // console.log("selectedPower", selectedPower);
-    // console.log("storageOptions", storageOptions);
-    // console.log("powerOptions", powerOptions);
-
-    // console.log('Button should be activated:', buttonActivation());
-
-    const newCartObject = {
-      id: item.id,
-      color: selectedColor,
-      storage: selectedStorage,
-      power: selectedPower,
-    };
-    addItemToCart(newCartObject);
-    setColorAvailable(colorIsAvailable(item.id, selectedColor));
-
     if (colorAvailable) {
-      console.log("its avaiable");
-    } else {
-      console.log("its unavailable");
-    }
-    console.log("getOptionAmountInCart", getOptionAmountInCart(2, "white"));
+      const newCartObject = {
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        color: selectedColor,
+        storage: selectedStorage,
+        power: selectedPower,
+      };
 
-    console.log("colorIsAvailable", colorIsAvailable(2, "white"));
+      addItemToCart(newCartObject);
+      setColorAvailable(colorIsAvailable(item.id, selectedColor));
+    }
   };
 
   return (
