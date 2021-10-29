@@ -124,7 +124,7 @@ function ProductDetails({ item, amountInCart, updateCart }) {
         <p className={styles.detailsName}>{item.name}</p>
           <p>Brand: {item.brand}</p>
           <p>
-            Availabilty: {item.available ? "In Stock" : "Not available"}
+            Availability: {item.available ? "In Stock" : "Not available"}
           </p>
           <p>Weight: {item.weight}kg</p>
         </div>
@@ -153,7 +153,7 @@ function ProductDetails({ item, amountInCart, updateCart }) {
             </div>
           </div>
 
-          <div className={styles.radioButtons}>
+          <div className={`${storageOptions ? styles.radioButtons : styles.hidden}`}>
             {storageOptions ? <p>Storage:</p> : ""}
             {
               <div className={styles.optionButtons}>
@@ -179,7 +179,7 @@ function ProductDetails({ item, amountInCart, updateCart }) {
             }
           </div>
 
-          <div className={styles.radioButtons}>
+          <div className={`${powerOptions ? styles.radioButtons : styles.hidden}`}>
             {powerOptions ? <p>Power:</p> : ""}
             {
               <div className={styles.optionButtons}>

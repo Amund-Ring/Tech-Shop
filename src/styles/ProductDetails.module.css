@@ -74,36 +74,44 @@
 .options {
   width: 100%;
   align-self: center;
-  margin-left: 5px;
+  /* margin-left: 5px; */
 
   /* background: turquoise; */
+
+  display: flex;
+  /* justify-content: center; */
+  gap: 10px;
+  /* border: 1px solid red; */
+  padding-left: 25px;
 }
 
 .radioButtons {
   text-transform: capitalize;
+  width: 80px;
   /* justify-content: space-between; */
 
   /* border: 1px solid black;
   background: yellow; */
   /* margin-top: 10px; */
+  /* border: 1px solid blue; */
 }
 
 .colorButtons {
-  display: flex;
-  justify-content: space-evenly;
+  /* display: flex; */
+  /* justify-content: space-evenly; */
   font-size: 16px;
 
   /* background: yellow; */
 }
 
 .optionButtons {
-  display: flex;
+  /* display: flex;
   justify-content: flex-start;
-  flex-wrap: wrap;
-  gap: 10px;
-  row-gap: 3px;
+  flex-wrap: wrap; */
+  /* gap: 10px; */
+  /* row-gap: 3px; */
   font-size: 16px;
-  margin-left: 10px;
+  /* margin-left: 10px; */
 
   /* background: violet; */
 }
@@ -127,4 +135,8 @@
 
 .details > button:hover {
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 6px;
+}
+
+.hidden {
+  visibility: hidden;
 }
