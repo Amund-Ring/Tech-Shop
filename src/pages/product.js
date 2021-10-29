@@ -26,7 +26,6 @@ function Product() {
     navigate("/404");
   }
 
-
   return (
     <Layout amountInCart={amountInCart}>
       <div className="product">
