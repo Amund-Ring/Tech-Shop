@@ -10,6 +10,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px;
+  z-index: 10;
   background: var(--primary);
   background: linear-gradient(0deg, rgb(35, 184, 77) 0%, rgb(72, 226, 115) 100%);
 

@@ -25,6 +25,12 @@ function getAmountInCart() {
   return shoppingCart.length;
 }
 
+function getOptionAmountInCart(id, color) {
+  let shoppingCart = getCartFromLocalStorage();
+  return shoppingCart.filter(item => item.id == id && item.color == color)
+    .length;
+}
+
 function getItem(id) {
   return productData.items.find(item => item.id === parseInt(id, 10));
 }
@@ -35,10 +41,15 @@ function itemIsAvailable(id) {
 
 function colorIsAvailable(id, color) {
   if (itemIsAvailable(id)) {
-    const colorOption = getItem(id).options.find(option => option.color == color);
-    return colorOption.quantity > 0;
+    const colorOption = getItem(id).options.find(
+      option => option.color == color
+    );
+
+    const inCart = getOptionAmountInCart(id, color);
+
+    return (colorOption.quantity - inCart) > 0;
   }
-    return false;
+  return false;
 }
 
 function getQuantityAvailable(id, color) {
@@ -54,5 +65,6 @@ export {
   getItem,
   getQuantityAvailable,
   itemIsAvailable,
-  colorIsAvailable
+  colorIsAvailable,
+  getOptionAmountInCart,
 };

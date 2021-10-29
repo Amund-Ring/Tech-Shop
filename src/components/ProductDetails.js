@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 import * as styles from "../styles/ProductDetails.module.css";
-import { getQuantityAvailable, itemIsAvailable, colorIsAvailable } from "../data/dataHandler";
+import {
+  getQuantityAvailable,
+  itemIsAvailable,
+  colorIsAvailable,
+  getAmountInCart,
+  getOptionAmountInCart
+} from "../data/dataHandler";
 
 function ProductDetails({ item, amountInCart, addItemToCart }) {
-  
   const getStorageOptions = color => {
     return item.options.find(option => option["color"] == color).storage;
   };
@@ -11,22 +16,23 @@ function ProductDetails({ item, amountInCart, addItemToCart }) {
   const getPowerOptions = color => {
     return item.options.find(option => option["color"] == color).power;
   };
-  
+
   const [selectedColor, setSelectedColor] = useState(
     item.options[0]["color"].toString()
-);
-  const [selectedStorage, setSelectedStorage] = useState([]);
-  const [selectedPower, setSelectedPower] = useState([]);
+  );
+  const [selectedStorage, setSelectedStorage] = useState(null);
+  const [selectedPower, setSelectedPower] = useState(null);
 
   const [storageOptions, setStorageOptions] = useState([]);
   const [powerOptions, setPowerOptions] = useState([]);
-  const [colorAvailable, setColorAvailable] = useState(colorIsAvailable(item.id, selectedColor));
-
+  const [colorAvailable, setColorAvailable] = useState(
+    colorIsAvailable(item.id, selectedColor)
+  );
 
   useEffect(() => {
     const storageChoices = getStorageOptions(selectedColor);
     setStorageOptions(storageChoices);
-    if (typeof storageChoices !== 'undefined') {
+    if (typeof storageChoices !== "undefined") {
       setSelectedStorage(storageOptions[0]);
     }
   }, []);
@@ -34,14 +40,14 @@ function ProductDetails({ item, amountInCart, addItemToCart }) {
   useEffect(() => {
     const powerChoices = getPowerOptions(selectedColor);
     setPowerOptions(powerChoices);
-    if (typeof powerChoices !== 'undefined') {
-      setSelectedStorage(powerChoices[0]);
+    if (typeof powerChoices !== "undefined") {
+      setSelectedPower(powerChoices[0]);
     }
   }, []);
 
   useEffect(() => {
     setColorAvailable(colorIsAvailable(item.id, selectedColor));
-  }, [selectedColor])
+  }, [selectedColor]);
 
   // useEffect(() => {
   //   setPowerOptions(getPowerOptions(selectedColor));
@@ -50,7 +56,6 @@ function ProductDetails({ item, amountInCart, addItemToCart }) {
   // useEffect(() => {
   //   setPowerOptions(getPowerOptions(selectedColor));
   // }, []);
-
 
   const optionIsAvailable = (color, amountInCart) => {
     const colorOption = item.options.find(option => option.color == color);
@@ -81,7 +86,6 @@ function ProductDetails({ item, amountInCart, addItemToCart }) {
 
   //   return true;
   // }
-  
 
   const handleButtonClick = () => {
     // console.log("Button was clicked.");
@@ -93,27 +97,23 @@ function ProductDetails({ item, amountInCart, addItemToCart }) {
 
     // console.log('Button should be activated:', buttonActivation());
 
-    // const newCartObject = {
-    //   item: item.id,
-    //   color: selectedColor,
-    //   storage: selectedStorage,
-    //   power: selectedPower
-    // }
+    const newCartObject = {
+      id: item.id,
+      color: selectedColor,
+      storage: selectedStorage,
+      power: selectedPower,
+    };
+    addItemToCart(newCartObject);
+    setColorAvailable(colorIsAvailable(item.id, selectedColor));
 
-    // addItemToCart(newCartObject);
     if (colorAvailable) {
-      console.log('sir');
-      console.log(getQuantityAvailable(3, 'white'));
-      console.log(getQuantityAvailable(3, 'black'));
-      console.log('itemIsAvailable', itemIsAvailable(3));
-      console.log('itemIsAvailable', itemIsAvailable(5));
+      console.log("its avaiable");
     } else {
-      console.log('its unavailable');
-      console.log(colorIsAvailable(5, 'black'))
-      console.log(colorIsAvailable(5, 'white'))
-      console.log(colorIsAvailable(1, 'white'))
-
+      console.log("its unavailable");
     }
+    console.log('getOptionAmountInCart', getOptionAmountInCart(2, 'white'));
+
+    console.log('colorIsAvailable', colorIsAvailable(2, 'white'));
 
   };
 
@@ -127,11 +127,9 @@ function ProductDetails({ item, amountInCart, addItemToCart }) {
 
       <div className={styles.details}>
         <div className={styles.detailsText}>
-        <p className={styles.detailsName}>{item.name}</p>
+          <p className={styles.detailsName}>{item.name}</p>
           <p>Brand: {item.brand}</p>
-          <p>
-            Availability: {item.available ? "In Stock" : "Not available"}
-          </p>
+          <p>Availability: {item.available ? "In Stock" : "Not available"}</p>
           <p>Weight: {item.weight}kg</p>
         </div>
 
@@ -160,7 +158,11 @@ function ProductDetails({ item, amountInCart, addItemToCart }) {
             </div>
           </div>
 
-          <div className={`${storageOptions ? styles.radioButtons : styles.hidden}`}>
+          <div
+            className={`${
+              storageOptions ? styles.radioButtons : styles.hidden
+            }`}
+          >
             {storageOptions ? <p>Storage:</p> : ""}
             {
               <div className={styles.optionButtons}>
@@ -186,7 +188,9 @@ function ProductDetails({ item, amountInCart, addItemToCart }) {
             }
           </div>
 
-          <div className={`${powerOptions ? styles.radioButtons : styles.hidden}`}>
+          <div
+            className={`${powerOptions ? styles.radioButtons : styles.hidden}`}
+          >
             {powerOptions ? <p>Power:</p> : ""}
             {
               <div className={styles.optionButtons}>
@@ -220,7 +224,12 @@ function ProductDetails({ item, amountInCart, addItemToCart }) {
             </div>
           })} */}
         </div>
-        <button onClick={handleButtonClick} className={`${colorAvailable ? styles.availableButton : styles.unavailableButton}`}>{`${colorAvailable ? 'Add to Cart' : 'Not available'}`}</button>
+        <button
+          onClick={handleButtonClick}
+          className={`${
+            colorAvailable ? styles.availableButton : styles.unavailableButton
+          }`}
+        >{`${colorAvailable ? "Add to Cart" : "Not available"}`}</button>
       </div>
     </div>
   );
