@@ -5,7 +5,7 @@ import {
   itemIsAvailable,
   colorIsAvailable,
   getAmountInCart,
-  getOptionAmountInCart
+  getOptionAmountInCart,
 } from "../data/dataHandler";
 
 function ProductDetails({ item, amountInCart, addItemToCart }) {
@@ -111,10 +111,9 @@ function ProductDetails({ item, amountInCart, addItemToCart }) {
     } else {
       console.log("its unavailable");
     }
-    console.log('getOptionAmountInCart', getOptionAmountInCart(2, 'white'));
+    console.log("getOptionAmountInCart", getOptionAmountInCart(2, "white"));
 
-    console.log('colorIsAvailable', colorIsAvailable(2, 'white'));
-
+    console.log("colorIsAvailable", colorIsAvailable(2, "white"));
   };
 
   return (
@@ -129,7 +128,7 @@ function ProductDetails({ item, amountInCart, addItemToCart }) {
         <div className={styles.detailsText}>
           <p className={styles.detailsName}>{item.name}</p>
           <p>Brand: {item.brand}</p>
-          <p>Availability: {item.available ? "In Stock" : "Not available"}</p>
+          <p>Availability: {item.available ? "In stock" : "Not available"}</p>
           <p>Weight: {item.weight}kg</p>
         </div>
 
