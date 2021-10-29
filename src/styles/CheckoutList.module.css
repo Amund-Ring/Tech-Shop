@@ -1,0 +1,26 @@
+@import "../config/colors.css";
+
+.checkoutList {
+  width: 400px;
+  height: 500px;
+  background: var(--white);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.listContainer {
+  width: 100%;
+  height: 80%;
+  border-bottom: 0.3px solid #b5b1f4a9;
+  /* background: purple; */
+}
+
+.totalContainer {
+  width: 100%;
+  flex: 1;
+
+  background: var(--checkoutList-total-bg)
+}

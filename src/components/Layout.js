@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import "../styles/global.css";
-import { getAmountInCart } from "../data/dataHandler";
 
 function Layout({ children, amountInCart }) {
-  
-
   return (
     <div className="layout">
       <Navbar amountInCart={amountInCart} />

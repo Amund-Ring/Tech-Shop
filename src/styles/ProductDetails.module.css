@@ -58,7 +58,8 @@
   flex-direction: column;
   gap: 6px;
   width: 100%;
-  margin-left: 5px;
+  margin-left: 15px;
+  font-size: 15px;
 
   /* background: pink; */
 }

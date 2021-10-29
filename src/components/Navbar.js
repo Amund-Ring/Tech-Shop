@@ -11,15 +11,10 @@ function Navbar({ amountInCart }) {
 
   const handleLogoClick = () => {
     navigate("/products");
-
-    // console.log(amountInCart);
   };
 
   const handleCartClick = () => {
-    // navigate("/checkout");
-    console.log("Cart was clicked");
-
-    console.log("amount", showCartNumber);
+    navigate("/checkout");
   };
 
   return (

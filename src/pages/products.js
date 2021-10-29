@@ -5,11 +5,11 @@ import productData from "../data/products.json";
 import { addToCart, getAmountInCart } from "../data/dataHandler";
 
 function Products() {
-  const [amountInCart] = useState(getAmountInCart())
+  const [amountInCart] = useState(getAmountInCart());
 
-  return (  
+  return (
     <Layout amountInCart={amountInCart}>
-      <div className='products'>
+      <div className="products">
         {productData.items.map((item, index) => {
           return <ProductCard key={`id_${index}`} item={item}></ProductCard>;
         })}

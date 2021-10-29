@@ -1,0 +1,11 @@
+@import "../config/colors.css";
+
+.backButton {
+  position: absolute;
+  margin-top: 30px;
+  margin-left: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  fill: var(--backButton);
+}

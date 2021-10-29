@@ -10,7 +10,7 @@ body {
   width: 100vw;
   height: 100vh;
   background: var(--body-bg);
-  font-family: 'Avenir';
+  font-family: "Avenir";
 }
 
 .notFound {
@@ -42,20 +42,28 @@ body {
   justify-items: center;
   align-content: flex-start;
   grid-gap: 40px;
-
 }
 
-.item {
+.product {
   width: 100vw;
   height: 100%;
   display: grid;
   place-content: center;
 }
 
-.item > h3 {
+.product > h3 {
   position: absolute;
   margin-top: 30px;
   margin-left: 40px;
   color: var(--productDetails-back);
   cursor: pointer;
 }
+
+.checkout {
+  width: 100vw;
+  height: 100%;
+  display: grid;
+  place-content: center;
+}
+
+

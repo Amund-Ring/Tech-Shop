@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as styles from "../styles/ProductDetails.module.css";
-import Navbar from "./Navbar";
-import { addToCart, getQuantityAvailable, itemIsAvailable, colorIsAvailable } from "../data/dataHandler";
+import { getQuantityAvailable, itemIsAvailable, colorIsAvailable } from "../data/dataHandler";
 
 function ProductDetails({ item, amountInCart, addItemToCart }) {
   
