@@ -43,7 +43,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 40px;
+  gap: 50px;
   padding: 15px;
   padding-top: 30px;
   padding-bottom: 50px;
@@ -116,26 +116,48 @@
   /* background: violet; */
 }
 
-.details > button {
-  width: 90%;
+.availableButton {
+  width: 80%;
   height: 50px;
   align-self: center;
   background: var(--productDetails-addToCart);
+  color: var(--white);
   box-shadow: none;
   border: none;
   font-size: 22px;
   font-weight: bold;
-  color: var(--white);
   margin-top: auto;
+  margin-bottom: 20px;
+  border: 0.1px solid rgba(190, 190, 190, 0.738);
   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 5px;
   /* -webkit-text-stroke: 0.3px black; */
   text-shadow: 0.1px 0.1px 2px #000000;
   cursor: pointer;
 }
-
-.details > button:hover {
+.available:hover {
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 6px;
 }
+
+.unavailableButton {
+  width: 80%;
+  height: 50px;
+  align-self: center;
+  background: rgb(192, 190, 190);
+  color: rgba(0, 0, 0, 0.581);
+  box-shadow: none;
+  border: none;
+  font-size: 18px;
+  font-weight: 400;
+  /* font-weight: bold; */
+  margin-top: auto;
+  margin-bottom: 20px;
+  border: 0.2px solid rgba(142, 142, 142, 0.738);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 5px;
+  /* -webkit-text-stroke: 0.3px black; */
+  /* text-shadow: 0.1px 0.1px 2px #000000; */
+  /* cursor: pointer; */
+}
+
 
 .hidden {
   visibility: hidden;

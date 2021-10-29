@@ -3,8 +3,7 @@ import useQueryParam from "../config/useQueryParams";
 import { navigate } from "gatsby";
 import Layout from "../components/Layout";
 import ProductDetails from "../components/ProductDetails";
-import productData from "../data/products.json";
-import { addToCart, getAmountInCart } from "../data/dataHandler";
+import { addToCart, getAmountInCart, getItem } from "../data/dataHandler";
 
 
 function Product() {
@@ -12,11 +11,7 @@ function Product() {
 
   const [amountInCart, setAmountInCart] = useState(getAmountInCart());
 
-  // useEffect(() => {
-  //   setAmountInCart(getAmountInCart());
-  // }, []);
-
-  const updateCart = (item) => {
+  const addItemToCart = (item) => {
     addToCart(item);
     setAmountInCart(amountInCart + 1);
   }
@@ -26,9 +21,8 @@ function Product() {
     navigate("/404");
   }
 
-  const productItem = productData.items.find(
-    item => item.id === parseInt(productId, 10)
-  );
+  
+  const productItem = getItem(productId);
 
   if (typeof productItem === "undefined") {
     navigate("/404");
@@ -42,7 +36,7 @@ function Product() {
     <Layout amountInCart={amountInCart}>
       <div className="item">
         <h3 onClick={goBack}>{`<-- Back`}</h3> {/* eslint-disable-line */}
-        <ProductDetails item={productItem} amountInCart={amountInCart} updateCart={updateCart} />
+        <ProductDetails item={productItem} amountInCart={amountInCart} addItemToCart={addItemToCart} />
       </div>
     </Layout>
   );

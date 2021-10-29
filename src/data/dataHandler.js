@@ -1,3 +1,5 @@
+import productData from "../data/products.json";
+
 function getCartFromLocalStorage() {
   if (typeof window !== "undefined") {
     if (localStorage.getItem("shoppingCart") === null) {
@@ -23,4 +25,34 @@ function getAmountInCart() {
   return shoppingCart.length;
 }
 
-export { getCartFromLocalStorage, addToCart, getAmountInCart };
+function getItem(id) {
+  return productData.items.find(item => item.id === parseInt(id, 10));
+}
+
+function itemIsAvailable(id) {
+  return getItem(id).available;
+}
+
+function colorIsAvailable(id, color) {
+  if (itemIsAvailable(id)) {
+    const colorOption = getItem(id).options.find(option => option.color == color);
+    return colorOption.quantity > 0;
+  }
+    return false;
+}
+
+function getQuantityAvailable(id, color) {
+  const item = getItem(id);
+  const colorOption = item.options.find(option => option.color == color);
+  return colorOption.quantity;
+}
+
+export {
+  getCartFromLocalStorage,
+  addToCart,
+  getAmountInCart,
+  getItem,
+  getQuantityAvailable,
+  itemIsAvailable,
+  colorIsAvailable
+};

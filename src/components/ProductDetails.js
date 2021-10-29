@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { addToCart } from "../data/dataHandler";
 import * as styles from "../styles/ProductDetails.module.css";
 import Navbar from "./Navbar";
+import { addToCart, getQuantityAvailable, itemIsAvailable, colorIsAvailable } from "../data/dataHandler";
 
-function ProductDetails({ item, amountInCart, updateCart }) {
+function ProductDetails({ item, amountInCart, addItemToCart }) {
   
   const getStorageOptions = color => {
     return item.options.find(option => option["color"] == color).storage;
@@ -21,18 +21,7 @@ function ProductDetails({ item, amountInCart, updateCart }) {
 
   const [storageOptions, setStorageOptions] = useState([]);
   const [powerOptions, setPowerOptions] = useState([]);
-
-  // const [colorOptionClicked, setColorOptionClicked] = useState(false);
-  // const [powerOptionClicked, setPowerOptionClicked] = useState(false);
-  // const [storageOptionClicked, setStorageOptionClicked] = useState(false);
-
-  // useEffect(() => {
-  //   const storOptions = getStorageOptions(selectedColor);
-  //   setStorageOptions(storOptions);
-  //   if (typeof storOptions === 'undefined') {
-  //     setStorageOptionClicked(true);
-  //   }
-  // }, []);
+  const [colorAvailable, setColorAvailable] = useState(colorIsAvailable(item.id, selectedColor));
 
 
   useEffect(() => {
@@ -50,6 +39,10 @@ function ProductDetails({ item, amountInCart, updateCart }) {
       setSelectedStorage(powerChoices[0]);
     }
   }, []);
+
+  useEffect(() => {
+    setColorAvailable(colorIsAvailable(item.id, selectedColor));
+  }, [selectedColor])
 
   // useEffect(() => {
   //   setPowerOptions(getPowerOptions(selectedColor));
@@ -92,23 +85,37 @@ function ProductDetails({ item, amountInCart, updateCart }) {
   
 
   const handleButtonClick = () => {
-    console.log("Button was clicked.");
-    console.log("selectedColor", selectedColor);
-    console.log("selectedStorage", selectedStorage);
-    console.log("selectedPower", selectedPower);
-    console.log("storageOptions", storageOptions);
-    console.log("powerOptions", powerOptions);
+    // console.log("Button was clicked.");
+    // console.log("selectedColor", selectedColor);
+    // console.log("selectedStorage", selectedStorage);
+    // console.log("selectedPower", selectedPower);
+    // console.log("storageOptions", storageOptions);
+    // console.log("powerOptions", powerOptions);
 
     // console.log('Button should be activated:', buttonActivation());
 
-    const newCartObject = {
-      item: item.id,
-      color: selectedColor,
-      storage: selectedStorage,
-      power: selectedPower
+    // const newCartObject = {
+    //   item: item.id,
+    //   color: selectedColor,
+    //   storage: selectedStorage,
+    //   power: selectedPower
+    // }
+
+    // addItemToCart(newCartObject);
+    if (colorAvailable) {
+      console.log('sir');
+      console.log(getQuantityAvailable(3, 'white'));
+      console.log(getQuantityAvailable(3, 'black'));
+      console.log('itemIsAvailable', itemIsAvailable(3));
+      console.log('itemIsAvailable', itemIsAvailable(5));
+    } else {
+      console.log('its unavailable');
+      console.log(colorIsAvailable(5, 'black'))
+      console.log(colorIsAvailable(5, 'white'))
+      console.log(colorIsAvailable(1, 'white'))
+
     }
 
-    updateCart(newCartObject);
   };
 
   return (
@@ -139,7 +146,8 @@ function ProductDetails({ item, amountInCart, updateCart }) {
                     <input
                       onClick={() => {
                         setSelectedColor(option["color"].toString());
-                        // setColorOptionClicked(true);
+                        // setColorAvailable(colorIsAvailable(item.id, selectedColor));
+                        // console.log(selectedColor);
                       }}
                       type="radio"
                       value={option["color"]}
@@ -213,7 +221,7 @@ function ProductDetails({ item, amountInCart, updateCart }) {
             </div>
           })} */}
         </div>
-        <button onClick={handleButtonClick}>Add to Cart</button>
+        <button onClick={handleButtonClick} className={`${colorAvailable ? styles.availableButton : styles.unavailableButton}`}>{`${colorAvailable ? 'Add to Cart' : 'Not available'}`}</button>
       </div>
     </div>
   );
