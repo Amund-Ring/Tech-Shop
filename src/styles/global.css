@@ -36,7 +36,6 @@ body {
   width: 100%;
   min-height: 100vh;
   padding: 30px;
-
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   justify-items: center;

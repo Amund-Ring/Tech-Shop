@@ -153,8 +153,9 @@
   font-weight: 600;
 }
 
-@media only screen and (max-width: 410px) {
+@media screen and (max-width: 410px) {
   .checkoutList {
     width: 96vw;
   }
 }
+

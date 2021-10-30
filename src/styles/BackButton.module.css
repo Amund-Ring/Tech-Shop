@@ -9,3 +9,11 @@
   align-items: center;
   fill: var(--backButton);
 }
+
+@media screen and (max-width: 615px) {
+  @media screen and (max-height: 700px) {
+    .backButton {
+      visibility: hidden;
+    }
+  }
+}
