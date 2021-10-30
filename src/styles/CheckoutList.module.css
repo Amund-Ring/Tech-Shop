@@ -75,6 +75,7 @@
   width: 70px;
   display: grid;
   place-content: center;
+  min-width: 70px;
 }
 
 .amountAdjust {
@@ -95,6 +96,7 @@
   background: #efdcef76;
   border: 1px solid gray;
   cursor: default;
+  user-select: none;
 }
 
 .adjustIncrDecr:hover {
@@ -104,6 +106,7 @@
 .amountNr {
   border-top: 1px solid gray;
   border-bottom: 1px solid gray;
+  user-select: none;
 }
 
 .price {
@@ -120,6 +123,7 @@
   justify-content: center;
   flex: 1;
   cursor: pointer;
+  min-width: 25px;
 }
 
 .bin:hover {
@@ -147,4 +151,10 @@
 
 .totalContainer > h3 > span {
   font-weight: 600;
+}
+
+@media only screen and (max-width: 410px) {
+  .checkoutList {
+    width: 96vw;
+  }
 }

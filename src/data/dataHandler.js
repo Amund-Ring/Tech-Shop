@@ -42,7 +42,7 @@ available in the database and what is already in the shopping cart */
 function colorIsAvailable(id, color) {
   if (itemIsAvailable(id)) {
     const colorOption = getItem(id).options.find(
-      //eslint-disable-next-line
+
       option => option.color == color
     );
 
@@ -79,7 +79,6 @@ function getSortedCart() {
   while (currentCart.length > 0) {
     sortedCart.push(
       currentCart.filter(
-        /* eslint-disable-next-line */
         cartItem =>
           cartItem.productId === currentCart[0].productId &&
           cartItem.color === currentCart[0].color
@@ -87,7 +86,6 @@ function getSortedCart() {
     );
 
     currentCart = currentCart.filter(
-      /* eslint-disable-next-line */
       cartItem =>
         cartItem.productId !== currentCart[0].productId ||
         cartItem.color !== currentCart[0].color

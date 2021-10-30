@@ -7,12 +7,10 @@ import StorageOptions from "./StorageOptions";
 
 function ProductDetails({ item, amountInCart, addItemToCart }) {
   const getStorageOptions = color => {
-    //eslint-disable-next-line
     return item.options.find(option => option["color"] == color).storage;
   };
 
   const getPowerOptions = color => {
-    //eslint-disable-next-line
     return item.options.find(option => option["color"] == color).power;
   };
 
@@ -34,7 +32,6 @@ function ProductDetails({ item, amountInCart, addItemToCart }) {
     if (typeof storageChoices !== "undefined") {
       setSelectedStorage(storageChoices[0]);
     }
-    //eslint-disable-next-line
   }, [selectedColor]);
 
   useEffect(() => {
@@ -43,12 +40,10 @@ function ProductDetails({ item, amountInCart, addItemToCart }) {
     if (typeof powerChoices !== "undefined") {
       setSelectedPower(powerChoices[0]);
     }
-    //eslint-disable-next-line
   }, [selectedColor]);
 
   useEffect(() => {
     setColorAvailable(colorIsAvailable(item.id, selectedColor));
-    //eslint-disable-next-line
   }, [selectedColor]);
 
   const handleButtonClick = () => {
