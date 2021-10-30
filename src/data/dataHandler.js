@@ -64,28 +64,123 @@ function getAmountInCart() {
 //Returns the amount of a given color option currently in the shopping cart
 function getOptionAmountInCart(id, color) {
   let shoppingCart = getCartFromLocalStorage();
-  return shoppingCart.filter(item => item.productId === id && item.color === color)
-    .length;
+  return shoppingCart.filter(
+    item => item.productId === id && item.color === color
+  ).length;
 }
 
-//Removes the given lineItem from the Shopping Cart
-function removeFromCart(lineItemId) {
+/* Check if the item is the first of its kind in cart
+because we only want to display one line per option */
+// function isFirstOfKindInCart(item) {
+//   const cart = getCartFromLocalStorage();
+//   let options = [];
 
-  // console.log(typeof lineItemId);
+//   for (let i = 0; i < cart.length; i++) {
+//     if (
+//       options.filter(option => {
+//         return true;
+//       }).length > 0
+//     ) {
+//       return false;
+//     }
+//     options.push(item);
+//   }
 
+//   return true;
+// }
+
+
+/* Returns a shopping cart array where the items are sorted by options
+so that we can render identical options on one line on the checkout page */
+function getSortedCart() {
+  let currentCart = getCartFromLocalStorage();
+  const sortedCart = [];
+
+  while (currentCart.length > 0) {
+    sortedCart.push(
+      /* eslint-disable-next-line */
+      currentCart.filter(cartItem => (cartItem.productId === currentCart[0].productId) && (cartItem.color === currentCart[0].color) )
+    );
+      /* eslint-disable-next-line */
+   currentCart = currentCart.filter(cartItem => (cartItem.productId !== currentCart[0].productId) || (cartItem.color !== currentCart[0].color))
+  }
+
+  return sortedCart;
+}
+
+//Returns the sum total for the products in the shopping cart
+function getTotalSum() {
   const currentCart = getCartFromLocalStorage();
-  const updatedCart = currentCart.filter(item => item.lineItemId !== lineItemId);
+  let sum = 0;
+
+  currentCart.forEach(lineItem => {
+    sum = sum + parseInt(lineItem.price, 10);
+    
+  });
+
+  return sum;
+}
+
+
+
+
+
+
+//Removes the given lineItem from the shopping cart and returns amount of items left in cart
+function removeLineFromCart(productId, color) {
+  const currentCart = getCartFromLocalStorage();
+  const updatedCart = currentCart.filter(
+    item => (item.productId !== productId) || (item.color !== color)
+  );
   localStorage.setItem("shoppingCart", JSON.stringify(updatedCart));
+  return updatedCart.length;
+}
+
+
+// Removes a single item from the shopping cart and returns amount of items left in cart
+function removeSingleItemFromCart(lineItemId) {
+  const currentCart = getCartFromLocalStorage();
+  const updatedCart = currentCart.filter(
+    item => item.lineItemId !== lineItemId
+  );
+
+  localStorage.setItem("shoppingCart", JSON.stringify(updatedCart));
+  return updatedCart.length;
+}
+
+/* Adds another item of the same type and option to the
+cart if it's available. Returns amount of items in cart */
+function addAnotherItemLine(item) {
+  if (colorIsAvailable(item.productId, item.color)) {
+    const newCartObject = {
+      lineItemId: Date.now(),
+      productId: item.productId,
+      name: item.name,
+      price: item.price,
+      color: item.color,
+      storage: item.storage,
+      power: item.power,
+    };
+
+    addToCart(newCartObject);
+  }
+  return getAmountInCart();
 }
 
 export {
   addToCart,
+  addAnotherItemLine,
   colorIsAvailable,
+  itemIsAvailable,
   getAmountInCart,
   getCartFromLocalStorage,
   getItem,
   getOptionAmountInCart,
   getQuantityAvailable,
-  itemIsAvailable,
-  removeFromCart
+  getSortedCart,
+  getTotalSum,
+  removeLineFromCart,
+  removeSingleItemFromCart
+
+
 };

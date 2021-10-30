@@ -1,55 +1,83 @@
 import { navigate } from "gatsby-link";
 import React, { useEffect, useState } from "react";
-import { getCartFromLocalStorage, removeFromCart } from "../data/dataHandler";
+import {
+  getSortedCart,
+  getTotalSum,
+  removeLineFromCart,
+  removeSingleItemFromCart,
+  addAnotherItemLine
+} from "../data/dataHandler";
 import * as styles from "../styles/CheckoutList.module.css";
 
 function CheckoutList({ amountInCart, setAmountInCart }) {
-  const [shoppingCart, setShoppingCart] = useState(getCartFromLocalStorage());
+  const [sortedCart, setSortedCart] = useState(getSortedCart());
+  const [total, setTotal] = useState(getTotalSum());
 
   useEffect(() => {
-    setShoppingCart(getCartFromLocalStorage());
+    setSortedCart(getSortedCart());
+    setTotal(getTotalSum());
   }, [amountInCart]);
-
 
   return (
     <div className={styles.checkoutList}>
       <div className={styles.listContainer}>
         <div className={styles.itemLine}>
-          <span className={styles.description}>Item</span>
+          <span className={`${styles.description} ${styles.descriptionTitle}`}>
+            Item
+          </span>
           <span className={styles.amount}>Amount</span>
           <span className={styles.priceTitle}>Price</span>
-          <span className={styles.bin}>Bin</span>
+          <span className={`${styles.bin} ${styles.binTitle}`}>Bin</span>
         </div>
-        {shoppingCart.map((item, index) => {
+        {sortedCart.map((item, index) => {
           return (
             <div className={styles.itemLine} key={index}>
               <span
                 onClick={() => {
-                  navigate(`/product/?id=${item.productId}`);
+                  navigate(`/product/?id=${item[0].productId}`);
                 }}
                 className={styles.description}
               >
-                {`${item.name}
-                 - ${item.color}
-                ${item.storage ? " - " : ""}
-                ${item.storage ? item.storage : ""}
-                ${item.storage ? " GB" : ""}
-                ${item.power ? " - " : ""}
-                ${item.power ? item.power : ""}
-                ${item.power ? " W" : ""}`}
+                {`${item[0].name}
+                 - ${item[0].color}
+                ${item[0].storage ? " - " : ""}
+                ${item[0].storage ? item[0].storage : ""}
+                ${item[0].storage ? " GB" : ""}
+                ${item[0].power ? " - " : ""}
+                ${item[0].power ? item[0].power : ""}
+                ${item[0].power ? " W" : ""}`}
               </span>
               <span className={styles.amount}>
                 <div className={styles.amountAdjust}>
-                  <span className={styles.adjustIncrDecr}>–</span>
-                  <span className={styles.amountNr}>3</span>
-                  <span className={styles.adjustIncrDecr}>+</span>
+                  <span
+                    className={styles.adjustIncrDecr}
+                    onClick={() => {
+                      setAmountInCart(
+                        removeSingleItemFromCart(item[0].lineItemId)
+                      );
+                    }}
+                  >
+                    –
+                  </span>
+                  <span className={styles.amountNr}>{item.length}</span>
+                  <span
+                    className={styles.adjustIncrDecr}
+                    onClick={() => {
+                      setAmountInCart(
+                        addAnotherItemLine(item[0])
+                      );
+                    }}
+                  >
+                    +
+                  </span>
                 </div>
               </span>
-              <span className={styles.price}>{`${item.price},-`}</span>
+              <span className={styles.price}>{`${item[0].price},-`}</span>
               <span
                 onClick={() => {
-                  removeFromCart(item.lineItemId);
-                  setAmountInCart(amountInCart - 1);
+                  setAmountInCart(
+                    removeLineFromCart(item[0].productId, item[0].color)
+                  );
                 }}
                 className={styles.bin}
               >
@@ -78,7 +106,7 @@ function CheckoutList({ amountInCart, setAmountInCart }) {
         <div className={styles.itemLine}></div> */}
       </div>
       <div className={styles.totalContainer}>
-        <h3>Total: </h3>
+        <h3>Total: <span>{Number(total).toLocaleString("no")},-</span></h3>
       </div>
     </div>
   );

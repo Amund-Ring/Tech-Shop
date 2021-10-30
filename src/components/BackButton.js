@@ -1,7 +1,7 @@
 import React from "react";
 import { navigate } from "gatsby";
 import * as styles from "../styles/BackButton.module.css";
-import { removeFromCart } from "../data/dataHandler";
+import { getSortedCart, getTotalSum, removeFromCart } from "../data/dataHandler";
 
 
 
@@ -10,8 +10,7 @@ function BackButton() {
   const goBack = () => {
     // navigate("/products");
 
-    removeFromCart(1635588114795);
-
+    console.log(getTotalSum());
   };
 
   return (

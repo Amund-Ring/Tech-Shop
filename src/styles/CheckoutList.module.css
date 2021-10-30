@@ -46,6 +46,7 @@
   font-size: 14px;
   padding-top: 3px;
   height: 55px;
+  cursor: default;
 }
 
 .itemLine:first-child > span {  
@@ -80,6 +81,11 @@
   color: rgb(212, 89, 144);
 }
 
+.descriptionTitle:hover {
+  cursor: default;
+  color: var(--black);
+}
+
 .amount {
   width: 70px;
   /* padding-left: 10px;
@@ -109,8 +115,12 @@
 
 .adjustIncrDecr {
   background: #efdcef76;
-
   border: 1px solid gray;
+  cursor: default;
+}
+
+.adjustIncrDecr:hover {
+  background: #bba7bb76;
 }
 
 .amountNr {
@@ -143,11 +153,27 @@
   fill: rgb(212, 89, 144);
 }
 
+.binTitle:hover {
+  cursor: default;
+  color: var(--black);
+}
+
 .totalContainer {
   width: 100%;
   height: 60px;
   background: var(--checkoutList-total-bg);
   display: flex;
   align-items: center;
-  padding-left: 200px;
+  justify-content: right;
+  padding-right: 20px;
+  /* padding-left: 250px; */
+}
+
+.totalContainer > h3 {
+  font-weight: 500;
+}
+
+.totalContainer > h3 >span {
+  font-weight: 600;
+
 }
