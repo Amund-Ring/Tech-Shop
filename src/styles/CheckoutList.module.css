@@ -111,8 +111,18 @@
 
 .price {
   width: 60px;
-  justify-content: right;
-  padding-right: 8px;
+  justify-content: center;
+  
+  /* padding-right: 8px; */
+}
+
+.price > span{
+  width: 60%;
+  text-align: right;
+
+  /* justify-content: right; */
+  /* background: skyblue; */
+
 }
 
 .priceTitle {
