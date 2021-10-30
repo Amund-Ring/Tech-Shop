@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import ProductCard from "../components/ProductCard";
 import productData from "../data/products.json";
 import { getAmountInCart } from "../data/dataHandler";
 
 function Products() {
-  const [amountInCart] = useState(getAmountInCart());
+  const [amountInCart, setAmountInCart] = useState(getAmountInCart());
+
+  useEffect(() => {
+    setAmountInCart(getAmountInCart());
+  }, [])
 
   return (
     <Layout amountInCart={amountInCart}>
