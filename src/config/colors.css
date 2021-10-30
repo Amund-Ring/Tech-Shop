@@ -1,9 +1,9 @@
 :root {
-  --primary: #34cf60;
-  --body-bg: rgb(217, 239, 248);
+  --body-bg: #d9eff8;
   --black: #000;
   --white: #fff;
 
+  --navbar-bg: #34cf60;
   --backButton: #167128;
 
   --productCard-bg: #e1d4ffc5;
@@ -15,7 +15,8 @@
   --productDetails-back: #114fa0;
   --productDetails-price: #0d9958;
   --productDetails-details-bg: #e1d4ffc5;
-  --productDetails-addToCart: #34cf60;
+  --productDetails-addToCart-btn: #34cf60;
+  --productDetails-unvailable-btn: #c0bebe;
 
   --shoppingcart-circle-bg: #e2d5ff;
   --shoppingcart-circle-border: #0e8025;
@@ -23,4 +24,6 @@
 
   --checkoutList-titleRow-bg: #eae3fbf8;
   --checkoutList-total-bg: #e1d4ffc5;
+  --checkoutList-oddRows: #f3eff39d;
+  --checkoutList-hoverText: #d45990;
 }

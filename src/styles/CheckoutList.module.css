@@ -28,7 +28,7 @@
 }
 
 .itemLine:nth-child(odd) {
-  background: #f3eff39d;
+  background: var(--checkoutList-oddRows);
   height: 50px;
 }
 
@@ -49,7 +49,6 @@
   height: 100%;
   display: flex;
   align-items: center;
-
   border-right: 0.3px solid #d8d6efd1;
 }
 
@@ -63,7 +62,7 @@
 }
 
 .description:hover {
-  color: rgb(212, 89, 144);
+  color: var(--checkoutList-hoverText);
 }
 
 .descriptionTitle:hover {
@@ -112,17 +111,11 @@
 .price {
   width: 60px;
   justify-content: center;
-
-  /* padding-right: 8px; */
 }
 
 .price > span{
   width: 60%;
   text-align: right;
-
-  /* justify-content: right; */
-  /* background: skyblue; */
-
 }
 
 .priceTitle {
@@ -137,7 +130,7 @@
 }
 
 .bin:hover {
-  fill: rgb(212, 89, 144);
+  fill: var(--checkoutList-hoverText);
 }
 
 .binTitle:hover {

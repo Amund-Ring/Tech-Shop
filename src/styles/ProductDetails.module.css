@@ -94,7 +94,7 @@
   width: 80%;
   height: 50px;
   align-self: center;
-  background: var(--productDetails-addToCart);
+  background: var(--productDetails-addToCart-btn);
   color: var(--white);
   box-shadow: none;
   border: none;
@@ -116,7 +116,7 @@
   width: 80%;
   height: 50px;
   align-self: center;
-  background: rgb(192, 190, 190);
+  background: var(--productDetails-unvailable-btn);
   color: rgba(0, 0, 0, 0.581);
   box-shadow: none;
   border: none;
