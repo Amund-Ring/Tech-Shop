@@ -112,7 +112,7 @@
 .price {
   width: 60px;
   justify-content: center;
-  
+
   /* padding-right: 8px; */
 }
 
@@ -149,7 +149,8 @@
   width: 100%;
   height: 60px;
   background: var(--checkoutList-total-bg);
-  display: flex;
+  /* display: flex; */
+  display:-webkit-flex;
   align-items: center;
   justify-content: right;
   padding-right: 20px;
