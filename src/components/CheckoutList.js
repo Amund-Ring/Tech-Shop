@@ -5,7 +5,7 @@ import {
   getTotalSum,
   removeLineFromCart,
   removeSingleItemFromCart,
-  addAnotherItemLine
+  addAnotherItemLine,
 } from "../data/dataHandler";
 import * as styles from "../styles/CheckoutList.module.css";
 
@@ -32,6 +32,7 @@ function CheckoutList({ amountInCart, setAmountInCart }) {
         {sortedCart.map((item, index) => {
           return (
             <div className={styles.itemLine} key={index}>
+              {/* eslint-disable-next-line */}
               <span
                 onClick={() => {
                   navigate(`/product/?id=${item[0].productId}`);
@@ -49,6 +50,7 @@ function CheckoutList({ amountInCart, setAmountInCart }) {
               </span>
               <span className={styles.amount}>
                 <div className={styles.amountAdjust}>
+                  {/* eslint-disable-next-line */}
                   <span
                     className={styles.adjustIncrDecr}
                     onClick={() => {
@@ -60,12 +62,11 @@ function CheckoutList({ amountInCart, setAmountInCart }) {
                     –
                   </span>
                   <span className={styles.amountNr}>{item.length}</span>
+                  {/* eslint-disable-next-line */}
                   <span
                     className={styles.adjustIncrDecr}
                     onClick={() => {
-                      setAmountInCart(
-                        addAnotherItemLine(item[0])
-                      );
+                      setAmountInCart(addAnotherItemLine(item[0]));
                     }}
                   >
                     +
@@ -73,6 +74,7 @@ function CheckoutList({ amountInCart, setAmountInCart }) {
                 </div>
               </span>
               <span className={styles.price}>{`${item[0].price},-`}</span>
+              {/* eslint-disable-next-line */}
               <span
                 onClick={() => {
                   setAmountInCart(
@@ -106,7 +108,9 @@ function CheckoutList({ amountInCart, setAmountInCart }) {
         <div className={styles.itemLine}></div> */}
       </div>
       <div className={styles.totalContainer}>
-        <h3>Total: <span>{Number(total).toLocaleString("no")},-</span></h3>
+        <h3>
+          Total: <span>{Number(total).toLocaleString("no")},-</span>
+        </h3>
       </div>
     </div>
   );
