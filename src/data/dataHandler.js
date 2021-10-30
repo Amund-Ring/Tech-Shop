@@ -52,6 +52,7 @@ function colorIsAvailable(id, color) {
       return colorOption.quantity - inCart > 0;
     }
   }
+
   return false;
 }
 
@@ -69,26 +70,6 @@ function getOptionAmountInCart(id, color) {
   ).length;
 }
 
-/* Check if the item is the first of its kind in cart
-because we only want to display one line per option */
-// function isFirstOfKindInCart(item) {
-//   const cart = getCartFromLocalStorage();
-//   let options = [];
-
-//   for (let i = 0; i < cart.length; i++) {
-//     if (
-//       options.filter(option => {
-//         return true;
-//       }).length > 0
-//     ) {
-//       return false;
-//     }
-//     options.push(item);
-//   }
-
-//   return true;
-// }
-
 /* Returns a shopping cart array where the items are sorted by options
 so that we can render identical options on one line on the checkout page */
 function getSortedCart() {
@@ -104,6 +85,7 @@ function getSortedCart() {
           cartItem.color === currentCart[0].color
       )
     );
+
     currentCart = currentCart.filter(
       /* eslint-disable-next-line */
       cartItem =>
@@ -130,9 +112,11 @@ function getTotalSum() {
 //Removes the given lineItem from the shopping cart and returns amount of items left in cart
 function removeLineFromCart(productId, color) {
   const currentCart = getCartFromLocalStorage();
+
   const updatedCart = currentCart.filter(
     item => item.productId !== productId || item.color !== color
   );
+
   localStorage.setItem("shoppingCart", JSON.stringify(updatedCart));
   return updatedCart.length;
 }
@@ -140,6 +124,7 @@ function removeLineFromCart(productId, color) {
 // Removes a single item from the shopping cart and returns amount of items left in cart
 function removeSingleItemFromCart(lineItemId) {
   const currentCart = getCartFromLocalStorage();
+  
   const updatedCart = currentCart.filter(
     item => item.lineItemId !== lineItemId
   );

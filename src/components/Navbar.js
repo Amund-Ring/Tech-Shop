@@ -1,5 +1,5 @@
-import { navigate } from "gatsby-link";
 import React, { useEffect, useState } from "react";
+import { navigate } from "gatsby-link";
 import * as styles from "../styles/Navbar.module.css";
 
 function Navbar({ amountInCart }) {
@@ -19,8 +19,23 @@ function Navbar({ amountInCart }) {
 
   return (
     <nav className={styles.navbar}>
-      <h1 onClick={handleLogoClick}>Tech Shop</h1> {/* eslint-disable-line */}
-      <div onClick={handleCartClick} className={styles.cart}>
+      <div
+        onClick={handleLogoClick}
+        className={styles.logo}
+        onKeyDown={handleLogoClick}
+        role="button"
+        tabIndex={[]}
+      >
+        Tech Shop
+      </div>
+
+      <div
+        onClick={handleCartClick}
+        className={styles.cart}
+        onKeyDown={handleCartClick}
+        role="button"
+        tabIndex={[]}
+      >
         <svg
           aria-hidden="true"
           focusable="false"

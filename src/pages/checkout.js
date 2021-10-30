@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Layout from "../components/Layout";
-import { getAmountInCart } from "../data/dataHandler";
-import CheckoutList from "../components/CheckoutList";
+import CheckoutList from "../components/CheckoutList/CheckoutList";
 import BackButton from "../components/BackButton";
+import { getAmountInCart } from "../data/dataHandler";
 
 function Checkout() {
   const [amountInCart, setAmountInCart] = useState(getAmountInCart());
@@ -11,7 +11,10 @@ function Checkout() {
     <Layout amountInCart={amountInCart}>
       <div className="checkout">
         <BackButton />
-        <CheckoutList amountInCart={amountInCart} setAmountInCart={setAmountInCart} />
+        <CheckoutList
+          amountInCart={amountInCart}
+          setAmountInCart={setAmountInCart}
+        />
       </div>
     </Layout>
   );

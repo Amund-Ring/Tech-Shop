@@ -1,5 +1,5 @@
-import { navigate } from "gatsby";
 import React from "react";
+import { navigate } from "gatsby";
 import * as styles from "../styles/ProductCard.module.css";
 
 function ProductCard({ item }) {
@@ -8,8 +8,14 @@ function ProductCard({ item }) {
   };
 
   return (
-    <div className={styles.productCard} onClick={handleClick} onKeyDown={handleClick} role="button" tabIndex={item}>
-      <img src={`/products/${item.id}.jpg`} alt="Alternative text" />
+    <div
+      className={styles.productCard}
+      onClick={handleClick}
+      onKeyDown={handleClick}
+      role="button"
+      tabIndex={[]}
+    >
+      <img src={`/products/${item.id}.jpg`} alt={item.name} />
       <div>
         <h2>{`${item.name}`}</h2>
         <h3>{`${item.price},-`}</h3>

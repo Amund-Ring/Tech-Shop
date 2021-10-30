@@ -6,7 +6,6 @@ function Layout({ children, amountInCart }) {
   return (
     <div className="layout">
       <Navbar amountInCart={amountInCart} />
-
       <div className="content">{children}</div>
     </div>
   );

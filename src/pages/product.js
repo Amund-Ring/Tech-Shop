@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import useQueryParam from "../config/useQueryParams";
 import { navigate } from "gatsby";
+import useQueryParam from "../config/useQueryParams";
 import Layout from "../components/Layout";
-import ProductDetails from "../components/ProductDetails";
-import { addToCart, getAmountInCart, getItem } from "../data/dataHandler";
 import BackButton from "../components/BackButton";
+import ProductDetails from "../components/ProductDetails/ProductDetails";
+import { addToCart, getAmountInCart, getItem } from "../data/dataHandler";
 
 function Product() {
   const [productId] = useQueryParam("id", 1);

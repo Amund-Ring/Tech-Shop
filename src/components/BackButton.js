@@ -2,17 +2,19 @@ import React from "react";
 import { navigate } from "gatsby";
 import * as styles from "../styles/BackButton.module.css";
 
-
-
-
 function BackButton() {
   const goBack = () => {
     navigate("/products");
   };
 
   return (
-    //eslint-disable-next-line
-    <div onClick={goBack} className={styles.backButton}>
+    <div
+      onClick={goBack}
+      className={styles.backButton}
+      onKeyDown={goBack}
+      role="button"
+      tabIndex={[]}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="40"

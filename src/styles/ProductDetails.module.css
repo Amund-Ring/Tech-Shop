@@ -50,8 +50,6 @@
   padding-bottom: 50px;
   font-size: 17px;
   font-weight: 500;
-
-  /* background: green; */
 }
 
 .detailsText {
@@ -61,8 +59,6 @@
   width: 100%;
   margin-left: 10px;
   font-size: 15px;
-
-  /* background: pink; */
 }
 
 .detailsName {
@@ -76,46 +72,23 @@
 .options {
   width: 100%;
   align-self: center;
-  /* margin-left: 5px; */
-
-  /* background: turquoise; */
 
   display: flex;
-  /* justify-content: center; */
   gap: 10px;
-  /* border: 1px solid red; */
   padding-left: 25px;
 }
 
 .radioButtons {
   text-transform: capitalize;
   width: 80px;
-  /* justify-content: space-between; */
-
-  /* border: 1px solid black;
-  background: yellow; */
-  /* margin-top: 10px; */
-  /* border: 1px solid blue; */
 }
 
 .colorButtons {
-  /* display: flex; */
-  /* justify-content: space-evenly; */
   font-size: 16px;
-
-  /* background: yellow; */
 }
 
 .optionButtons {
-  /* display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap; */
-  /* gap: 10px; */
-  /* row-gap: 3px; */
   font-size: 16px;
-  /* margin-left: 10px; */
-
-  /* background: violet; */
 }
 
 .availableButton {
@@ -132,10 +105,10 @@
   margin-bottom: 20px;
   border: 0.1px solid rgba(190, 190, 190, 0.738);
   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 5px;
-  /* -webkit-text-stroke: 0.3px black; */
   text-shadow: 0.1px 0.1px 2px #000000;
   cursor: pointer;
 }
+
 .available:hover {
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 6px;
 }
@@ -150,16 +123,11 @@
   border: none;
   font-size: 18px;
   font-weight: 400;
-  /* font-weight: bold; */
   margin-top: auto;
   margin-bottom: 20px;
   border: 0.2px solid rgba(142, 142, 142, 0.738);
   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 5px;
-  /* -webkit-text-stroke: 0.3px black; */
-  /* text-shadow: 0.1px 0.1px 2px #000000; */
-  /* cursor: pointer; */
 }
-
 
 .hidden {
   visibility: hidden;
