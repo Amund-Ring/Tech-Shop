@@ -51,7 +51,8 @@ function ProductDetails({ item, amountInCart, addItemToCart }) {
   const handleButtonClick = () => {
     if (colorAvailable) {
       const newCartObject = {
-        id: item.id,
+        lineItemId: Date.now(),
+        productId: item.id,
         name: item.name,
         price: item.price,
         color: selectedColor,

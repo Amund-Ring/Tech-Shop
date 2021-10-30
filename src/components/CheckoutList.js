@@ -1,28 +1,36 @@
 import { navigate } from "gatsby-link";
-import React, { useState } from "react";
-import { getCartFromLocalStorage } from "../data/dataHandler";
+import React, { useEffect, useState } from "react";
+import { getCartFromLocalStorage, removeFromCart } from "../data/dataHandler";
 import * as styles from "../styles/CheckoutList.module.css";
 
-function CheckoutList({ setAmountInCart }) {
-  const [shoppingCart] = useState(getCartFromLocalStorage());
-  
+function CheckoutList({ amountInCart, setAmountInCart }) {
+  const [shoppingCart, setShoppingCart] = useState(getCartFromLocalStorage());
+
+  useEffect(() => {
+    setShoppingCart(getCartFromLocalStorage());
+  }, [amountInCart]);
+
 
   return (
     <div className={styles.checkoutList}>
       <div className={styles.listContainer}>
-      <div className={styles.itemLine}>
-              <span className={styles.description}>Item</span>
-              <span className={styles.amount}>Amount</span>
-              <span className={styles.priceTitle}>Price</span>
-              <span className={styles.bin}>Bin</span>
-            </div>
+        <div className={styles.itemLine}>
+          <span className={styles.description}>Item</span>
+          <span className={styles.amount}>Amount</span>
+          <span className={styles.priceTitle}>Price</span>
+          <span className={styles.bin}>Bin</span>
+        </div>
         {shoppingCart.map((item, index) => {
           return (
             <div className={styles.itemLine} key={index}>
-              <span onClick={() => {
-                navigate(`/product/?id=${item.id}`);
-              }} className={styles.description}>
+              <span
+                onClick={() => {
+                  navigate(`/product/?id=${item.productId}`);
+                }}
+                className={styles.description}
+              >
                 {`${item.name}
+                 - ${item.color}
                 ${item.storage ? " - " : ""}
                 ${item.storage ? item.storage : ""}
                 ${item.storage ? " GB" : ""}
@@ -31,12 +39,20 @@ function CheckoutList({ setAmountInCart }) {
                 ${item.power ? " W" : ""}`}
               </span>
               <span className={styles.amount}>
-                <span>–</span>
-                <span>3</span>
-                <span>+</span>
+                <div className={styles.amountAdjust}>
+                  <span className={styles.adjustIncrDecr}>–</span>
+                  <span className={styles.amountNr}>3</span>
+                  <span className={styles.adjustIncrDecr}>+</span>
+                </div>
               </span>
               <span className={styles.price}>{`${item.price},-`}</span>
-              <span className={styles.bin}>
+              <span
+                onClick={() => {
+                  removeFromCart(item.lineItemId);
+                  setAmountInCart(amountInCart - 1);
+                }}
+                className={styles.bin}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"

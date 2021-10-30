@@ -11,7 +11,7 @@ function Checkout() {
     <Layout amountInCart={amountInCart}>
       <div className="checkout">
         <BackButton />
-        <CheckoutList setAmountInCart={setAmountInCart} />
+        <CheckoutList amountInCart={amountInCart} setAmountInCart={setAmountInCart} />
       </div>
     </Layout>
   );
