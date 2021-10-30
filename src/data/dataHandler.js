@@ -89,7 +89,6 @@ because we only want to display one line per option */
 //   return true;
 // }
 
-
 /* Returns a shopping cart array where the items are sorted by options
 so that we can render identical options on one line on the checkout page */
 function getSortedCart() {
@@ -98,11 +97,19 @@ function getSortedCart() {
 
   while (currentCart.length > 0) {
     sortedCart.push(
-      /* eslint-disable-next-line */
-      currentCart.filter(cartItem => (cartItem.productId === currentCart[0].productId) && (cartItem.color === currentCart[0].color) )
+      currentCart.filter(
+        /* eslint-disable-next-line */
+        cartItem =>
+          cartItem.productId === currentCart[0].productId &&
+          cartItem.color === currentCart[0].color
+      )
     );
+    currentCart = currentCart.filter(
       /* eslint-disable-next-line */
-   currentCart = currentCart.filter(cartItem => (cartItem.productId !== currentCart[0].productId) || (cartItem.color !== currentCart[0].color))
+      cartItem =>
+        cartItem.productId !== currentCart[0].productId ||
+        cartItem.color !== currentCart[0].color
+    );
   }
 
   return sortedCart;
@@ -115,27 +122,20 @@ function getTotalSum() {
 
   currentCart.forEach(lineItem => {
     sum = sum + parseInt(lineItem.price, 10);
-    
   });
 
   return sum;
 }
 
-
-
-
-
-
 //Removes the given lineItem from the shopping cart and returns amount of items left in cart
 function removeLineFromCart(productId, color) {
   const currentCart = getCartFromLocalStorage();
   const updatedCart = currentCart.filter(
-    item => (item.productId !== productId) || (item.color !== color)
+    item => item.productId !== productId || item.color !== color
   );
   localStorage.setItem("shoppingCart", JSON.stringify(updatedCart));
   return updatedCart.length;
 }
-
 
 // Removes a single item from the shopping cart and returns amount of items left in cart
 function removeSingleItemFromCart(lineItemId) {
@@ -180,7 +180,5 @@ export {
   getSortedCart,
   getTotalSum,
   removeLineFromCart,
-  removeSingleItemFromCart
-
-
+  removeSingleItemFromCart,
 };

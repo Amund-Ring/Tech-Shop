@@ -35,18 +35,18 @@ function CheckoutList({ amountInCart, setAmountInCart }) {
               {/* eslint-disable-next-line */}
               <span
                 onClick={() => {
-                  navigate(`/product/?id=${item[0].productId}`);
+                  navigate(`/product/?id=${item[item.length-1].productId}`);
                 }}
                 className={styles.description}
               >
-                {`${item[0].name}
-                 - ${item[0].color}
-                ${item[0].storage ? " - " : ""}
-                ${item[0].storage ? item[0].storage : ""}
-                ${item[0].storage ? " GB" : ""}
-                ${item[0].power ? " - " : ""}
-                ${item[0].power ? item[0].power : ""}
-                ${item[0].power ? " W" : ""}`}
+                {`${item[item.length-1].name}
+                 - ${item[item.length-1].color}
+                ${item[item.length-1].storage ? " - " : ""}
+                ${item[item.length-1].storage ? item[item.length-1].storage : ""}
+                ${item[item.length-1].storage ? " GB" : ""}
+                ${item[item.length-1].power ? " - " : ""}
+                ${item[item.length-1].power ? item[item.length-1].power : ""}
+                ${item[item.length-1].power ? " W" : ""}`}
               </span>
               <span className={styles.amount}>
                 <div className={styles.amountAdjust}>
@@ -55,7 +55,7 @@ function CheckoutList({ amountInCart, setAmountInCart }) {
                     className={styles.adjustIncrDecr}
                     onClick={() => {
                       setAmountInCart(
-                        removeSingleItemFromCart(item[0].lineItemId)
+                        removeSingleItemFromCart(item[item.length-1].lineItemId)
                       );
                     }}
                   >
@@ -66,19 +66,19 @@ function CheckoutList({ amountInCart, setAmountInCart }) {
                   <span
                     className={styles.adjustIncrDecr}
                     onClick={() => {
-                      setAmountInCart(addAnotherItemLine(item[0]));
+                      setAmountInCart(addAnotherItemLine(item[item.length-1]));
                     }}
                   >
                     +
                   </span>
                 </div>
               </span>
-              <span className={styles.price}>{`${item[0].price},-`}</span>
+              <span className={styles.price}>{`${item[item.length-1].price},-`}</span>
               {/* eslint-disable-next-line */}
               <span
                 onClick={() => {
                   setAmountInCart(
-                    removeLineFromCart(item[0].productId, item[0].color)
+                    removeLineFromCart(item[item.length-1].productId, item[item.length-1].color)
                   );
                 }}
                 className={styles.bin}
