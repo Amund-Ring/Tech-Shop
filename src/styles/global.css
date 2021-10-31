@@ -64,7 +64,3 @@ body {
   display: grid;
   place-content: center;
 }
-
-#gatsby-focus-wrapper{
-  visibility: hidden;
-}
