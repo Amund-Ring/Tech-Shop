@@ -1,13 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { navigate } from "gatsby-link";
 import * as styles from "../../styles/CheckoutList.module.css";
 import {
   removeLineFromCart,
   removeSingleItemFromCart,
   addAnotherItemLine,
+  colorIsAvailable,
 } from "../../data/dataHandler";
 
-function LineItem({ item, setAmountInCart }) {
+function LineItem({ item, amountInCart, setAmountInCart }) {
+  const [plusButtonEnabled, setPlusButtonEnabled] = useState(
+    colorIsAvailable(
+      item[item.length - 1].productId,
+      item[item.length - 1].color
+    )
+  );
+
+  useEffect(() => {
+    setPlusButtonEnabled(
+      colorIsAvailable(
+        item[item.length - 1].productId,
+        item[item.length - 1].color
+      )
+    );
+  }, [amountInCart]);
+
   return (
     <div className={styles.itemLine}>
       <span
@@ -57,7 +74,9 @@ function LineItem({ item, setAmountInCart }) {
           </span>
           <span className={styles.amountNr}>{item.length}</span>
           <span
-            className={styles.adjustIncrDecr}
+            className={
+              plusButtonEnabled ? styles.adjustIncrDecr : styles.plusDisabled
+            }
             onClick={() => {
               setAmountInCart(addAnotherItemLine(item[item.length - 1]));
             }}
@@ -71,7 +90,9 @@ function LineItem({ item, setAmountInCart }) {
           </span>
         </div>
       </span>
-      <span className={styles.price}><span>{`${item[item.length - 1].price},-`}</span></span>
+      <span className={styles.price}>
+        <span>{`${item[item.length - 1].price},-`}</span>
+      </span>
       <span
         onClick={() => {
           setAmountInCart(

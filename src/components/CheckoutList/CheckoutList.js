@@ -23,6 +23,7 @@ function CheckoutList({ amountInCart, setAmountInCart }) {
             <LineItem
               item={item}
               key={index}
+              amountInCart={amountInCart}
               setAmountInCart={setAmountInCart}
             />
           );
