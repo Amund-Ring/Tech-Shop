@@ -2,7 +2,7 @@
 A minimal online shopping solution.
 
 Check it out here:  
-https://tech-shop-lendo.netlify.app
+https://tech-shop-lendo.netlify.app/products
 
 
 ![Main view](/static/screenshots/products_page.png "Products Page")
