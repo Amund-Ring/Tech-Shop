@@ -127,7 +127,7 @@ function removeSingleItemFromCart(lineItemId) {
   if (typeof window !== "undefined") {
     localStorage.setItem("shoppingCart", JSON.stringify(updatedCart));
   }
-  
+
   return updatedCart.length;
 }
 

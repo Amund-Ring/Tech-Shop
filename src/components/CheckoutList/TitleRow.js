@@ -1,7 +1,6 @@
 import React from "react";
 import * as styles from "../../styles/CheckoutList.module.css";
 
-
 function TitleRow() {
   return (
     <div className={styles.itemLine}>

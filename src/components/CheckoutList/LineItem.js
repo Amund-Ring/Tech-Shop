@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { navigate } from "gatsby-link";
 import * as styles from "../../styles/CheckoutList.module.css";
+
 import {
   removeLineFromCart,
   removeSingleItemFromCart,

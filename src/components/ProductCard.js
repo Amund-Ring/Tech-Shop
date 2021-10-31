@@ -1,4 +1,3 @@
-
 import React from "react";
 import { navigate } from "gatsby";
 import * as styles from "../styles/ProductCard.module.css";

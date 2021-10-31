@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as styles from "../../styles/CheckoutList.module.css";
 import { getSortedCart, getTotalSum } from "../../data/dataHandler";
+
 import LineItem from "./LineItem";
 import TitleRow from "./TitleRow";
 import TotalRow from "./TotalRow";

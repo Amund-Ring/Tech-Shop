@@ -121,7 +121,7 @@
   justify-content: center;
 }
 
-.price > span{
+.price > span {
   width: 60%;
   text-align: right;
 }
@@ -170,4 +170,3 @@
     width: 96vw;
   }
 }
-

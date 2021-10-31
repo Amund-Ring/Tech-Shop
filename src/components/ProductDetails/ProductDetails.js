@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as styles from "../../styles/ProductDetails.module.css";
 import { colorIsAvailable } from "../../data/dataHandler";
+
 import ColorOptions from "./ColorOptions";
 import PowerOptions from "./PowerOptions";
 import StorageOptions from "./StorageOptions";
