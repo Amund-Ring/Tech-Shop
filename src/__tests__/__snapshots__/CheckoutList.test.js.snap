@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckoutList renders correctly 1`] = `
+<div>
+  <div>
+    <div>
+      <span
+        className="undefined undefined"
+      >
+        Item
+      </span>
+      <span>
+        Amount
+      </span>
+      <span>
+        Price
+      </span>
+      <span
+        className="undefined undefined"
+      >
+        Bin
+      </span>
+    </div>
+  </div>
+  <div>
+    <span />
+    <h3>
+      Total: 
+      <span>
+        0
+        ,-
+      </span>
+    </h3>
+  </div>
+</div>
+`;

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductCard renders correctly 1`] = `
+<div
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  role="button"
+  tabIndex={Array []}
+>
+  <img
+    alt="Bluetooth speaker"
+    src="/products/5.jpg"
+  />
+  <div>
+    <h2>
+      Bluetooth speaker
+    </h2>
+    <h3>
+      800,-
+    </h3>
+  </div>
+</div>
+`;

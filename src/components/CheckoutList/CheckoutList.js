@@ -28,7 +28,7 @@ function CheckoutList({ amountInCart, setAmountInCart }) {
           );
         })}
       </div>
-      <TotalRow total={total}/>
+      <TotalRow total={total} />
     </div>
   );
 }

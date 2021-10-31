@@ -14,6 +14,7 @@ function BackButton() {
       onKeyDown={goBack}
       role="button"
       tabIndex={[]}
+      data-testid="backButton"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
