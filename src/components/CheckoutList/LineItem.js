@@ -92,7 +92,9 @@ function LineItem({ item, amountInCart, setAmountInCart }) {
         </div>
       </span>
       <span className={styles.price}>
-        <span>{`${item[item.length - 1].price * item.length},-`}</span>
+        <span>{`${Number(
+          item[item.length - 1].price * item.length
+        ).toLocaleString("no")},-`}</span>
       </span>
       <span
         onClick={() => {

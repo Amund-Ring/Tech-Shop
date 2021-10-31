@@ -122,8 +122,10 @@
 }
 
 .price > span {
-  width: 60%;
+  width: 50px;
   text-align: right;
+
+  /* background: pink; */
 }
 
 .priceTitle {
