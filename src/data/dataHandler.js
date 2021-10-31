@@ -17,19 +17,14 @@ function getCartFromLocalStorage() {
 function addToCart(item) {
   let shoppingCart = getCartFromLocalStorage();
   shoppingCart = [...shoppingCart, item];
-  localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
+  if (typeof window !== "undefined") {
+    localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
+  }
 }
 
 //Returns matching item from the product database
 function getItem(id) {
   return productData.items.find(item => item.id === parseInt(id, 10));
-}
-
-//Returns the quantity available of a given color option in the database
-function getQuantityAvailable(id, color) {
-  const item = getItem(id);
-  const colorOption = item.options.find(option => option.color === color);
-  return colorOption.quantity;
 }
 
 //Checks if the item with the given id is available in the database
@@ -42,7 +37,6 @@ available in the database and what is already in the shopping cart */
 function colorIsAvailable(id, color) {
   if (itemIsAvailable(id)) {
     const colorOption = getItem(id).options.find(
-
       option => option.color == color
     );
 
@@ -115,19 +109,25 @@ function removeLineFromCart(productId, color) {
     item => item.productId !== productId || item.color !== color
   );
 
-  localStorage.setItem("shoppingCart", JSON.stringify(updatedCart));
+  if (typeof window !== "undefined") {
+    localStorage.setItem("shoppingCart", JSON.stringify(updatedCart));
+  }
+
   return updatedCart.length;
 }
 
 // Removes a single item from the shopping cart and returns amount of items left in cart
 function removeSingleItemFromCart(lineItemId) {
   const currentCart = getCartFromLocalStorage();
-  
+
   const updatedCart = currentCart.filter(
     item => item.lineItemId !== lineItemId
   );
 
-  localStorage.setItem("shoppingCart", JSON.stringify(updatedCart));
+  if (typeof window !== "undefined") {
+    localStorage.setItem("shoppingCart", JSON.stringify(updatedCart));
+  }
+  
   return updatedCart.length;
 }
 
@@ -159,7 +159,6 @@ export {
   getCartFromLocalStorage,
   getItem,
   getOptionAmountInCart,
-  getQuantityAvailable,
   getSortedCart,
   getTotalSum,
   removeLineFromCart,
