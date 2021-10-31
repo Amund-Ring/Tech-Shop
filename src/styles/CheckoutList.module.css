@@ -119,13 +119,12 @@
 .price {
   width: 60px;
   justify-content: center;
+  padding-right: 3px;
 }
 
 .price > span {
   width: 50px;
   text-align: right;
-
-  /* background: pink; */
 }
 
 .priceTitle {
