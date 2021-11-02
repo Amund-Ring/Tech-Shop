@@ -1,6 +1,6 @@
 import productData from "../data/products.json";
 
-//Returns the cart local storage or initializes a new one
+//Returns the cart from local storage or initializes a new one
 function getCartFromLocalStorage() {
   if (typeof window !== "undefined") {
     if (localStorage.getItem("shoppingCart") === null) {
