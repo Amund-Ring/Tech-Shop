@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import ProductCard from "../components/ProductCard";
-import productData from "../data/products.json";
 import { getAmountInCart } from "../data/dataHandler";
+import productData from "../data/products.json";
 
 function Products() {
   const [amountInCart, setAmountInCart] = useState(getAmountInCart());
