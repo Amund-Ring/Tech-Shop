@@ -9,7 +9,7 @@
   flex-direction: column;
   background: var(--white);
   cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
 }
 
 .productCard:hover {
