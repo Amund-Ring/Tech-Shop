@@ -103,7 +103,8 @@
   margin-top: auto;
   margin-bottom: 20px;
   border: 0.1px solid rgba(190, 190, 190, 0.738);
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 5px;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 5px;
   text-shadow: 0.1px 0.1px 2px #000000;
   cursor: pointer;
 }
@@ -125,7 +126,8 @@
   margin-top: auto;
   margin-bottom: 20px;
   border: 0.2px solid rgba(142, 142, 142, 0.738);
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 5px;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 5px;
 }
 
 .hidden {
