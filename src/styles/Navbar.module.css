@@ -12,6 +12,8 @@
   padding: 20px;
   z-index: 10;
   background: var(--navbar-bg);
+  background: linear-gradient(0deg, rgb(31, 170, 70) 0%, rgb(102, 246, 143) 100%);
+  box-shadow: rgba(0, 0, 0, 0.10) 0px 3px 8px;
 }
 
 .logo {

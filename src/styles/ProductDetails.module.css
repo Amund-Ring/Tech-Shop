@@ -6,7 +6,7 @@
   background: var(--white);
   display: flex;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border-radius: 4px;
+  border-radius: 10px;
   overflow: hidden;
 }
 
